@@ -76,13 +76,70 @@ public class DemoRest {
 	}
 	
 	@GET
-	@Path("/maquina/{ofanumenr}")
+	@Path("/maquina/{SECNUMENR}")
 	@Produces("application/json")
-	public List<HashMap<String, String>> maquina(@PathParam("ofanumenr") String ofanumenr) throws SQLException, ClassNotFoundException {
+	public List<HashMap<String, String>> maquina(@PathParam("SECNUMENR") String SECNUMENR) throws SQLException, ClassNotFoundException {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getMaq(ofanumenr);
+		 List<HashMap<String, String>> sofas =connectionProgress.getMaq(SECNUMENR);
+		return sofas;
+	}
+	
+	@GET
+	@Path("/allmaquina")
+	@Produces("application/json")
+	public List<HashMap<String, String>> Allmaquina() throws SQLException, ClassNotFoundException {
+				
+		ConnectProgress connectionProgress = new ConnectProgress();
+		
+		 List<HashMap<String, String>> sofas =connectionProgress.getAllMaq();
+		return sofas;
+	}
+	
+	
+	@GET
+	@Path("/tipofaltas")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getTipoFalta() throws SQLException, ClassNotFoundException {
+				
+		ConnectProgress connectionProgress = new ConnectProgress();
+		
+		 List<HashMap<String, String>> sofas =connectionProgress.getTipoFalta();
+		return sofas;
+	}
+	
+	@GET
+	@Path("/users")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getUsers() throws SQLException, ClassNotFoundException {
+				
+		ConnectProgress connectionProgress = new ConnectProgress();
+		
+		 List<HashMap<String, String>> sofas =connectionProgress.getUsers();
+		return sofas;
+	}
+	
+	@GET
+	@Path("/sessoes")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getSessoes() throws SQLException, ClassNotFoundException {
+				
+		ConnectProgress connectionProgress = new ConnectProgress();
+		
+		 List<HashMap<String, String>> sofas =connectionProgress.getSessoes();
+		return sofas;
+	}
+	
+	@GET
+	@Path("/referencias/{OFANUMENR}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getRef(@PathParam("OFANUMENR") String OFANUMENR)
+			throws SQLException, ClassNotFoundException {
+
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		 List<HashMap<String, String>> sofas =connectionProgress.getRef(OFANUMENR);
 		return sofas;
 	}
 

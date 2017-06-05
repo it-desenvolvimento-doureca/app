@@ -15,7 +15,6 @@ import javax.json.JsonObject;
 public class ConnectProgress {
 
 	private static final String QUERY = "select * from PUB.\"SOFA\" where utimod= 'recep1'";
-	private static final String QUERY_CADEIRA = null;
 	public static String querySofaGetAll = "select * from PUB.\"SOFA\" where utimod='%s'";
 
 	public static void main(String[] args) throws SQLException {
@@ -57,30 +56,9 @@ public class ConnectProgress {
 				String coffeeName = rs.getString("OFNUM");
 				x.add(coffeeName);
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return x;
-	}
-
-	public List<String> getCadeira() throws SQLException {
-
-		// Query da cadeira
-		// String query = String.format(ConnectProgress.querySofaGetAll,
-		// "recep1");
-
-		List<String> x = new ArrayList<>();
-
-		// Usa sempre assim que fecha os resources automaticamente
-		try (Connection connection = getConnection();
-				Statement stmt = connection.createStatement();
-				ResultSet rs = stmt.executeQuery(QUERY_CADEIRA)) {
-			while (rs.next()) {
-				// parser da cadeira
-				String coffeeName = rs.getString("utimod");
-				x.add(coffeeName);
-			}
+			connection.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,7 +68,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getOF(String ofnum) throws SQLException {
 
-		String query = "select * from PUB.\"SOFA\" where ofnum= '"+ofnum+"'";
+		String query = "select * from PUB.\"SOFA\" where ofnum= '" + ofnum + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -99,23 +77,26 @@ public class ConnectProgress {
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(query)) {
 			while (rs.next()) {
-				// parser da cadeira
 				HashMap<String, String> x = new HashMap<>();
 				x.put("ofnum", rs.getString("ofnum"));
-				x.put("ofanumenr",rs.getString("ofanumenr"));
+				x.put("ofanumenr", rs.getString("ofanumenr"));
+				x.put("ofref", rs.getString("ofref"));
 				list.add(x);
 			}
+			connection.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
 	}
-	
+
 	public List<HashMap<String, String>> getOP(String ofanumenr) throws SQLException {
 
-		String query = "select * from PUB.\"SOFD\" where ofanumenr= '"+ofanumenr+"'";
-		
+		String query = "select * from PUB.\"SOFD\" where ofanumenr= '" + ofanumenr + "'";
+
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 		// Usa sempre assim que fecha os resources automaticamente
@@ -125,21 +106,25 @@ public class ConnectProgress {
 			while (rs.next()) {
 				// parser das operações
 				HashMap<String, String> x = new HashMap<>();
-				x.put("OPECOD",rs.getString("OPECOD"));
-				x.put("OPEDES",rs.getString("OPEDES"));
+				x.put("OPECOD", rs.getString("OPECOD"));
+				x.put("OPEDES", rs.getString("OPEDES"));
+				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
 				list.add(x);
 			}
+			connection.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
 	}
-	
+
 	public List<HashMap<String, String>> getallOP() throws SQLException {
 
-		String query = "select DISTINCT OPECOD,OPEDES from PUB.\"SOFD\"";
-		
+		String query = "select * from PUB.\"SDTOPP\"";
+
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 		// Usa sempre assim que fecha os resources automaticamente
@@ -149,10 +134,151 @@ public class ConnectProgress {
 			while (rs.next()) {
 				// parser das operações
 				HashMap<String, String> x = new HashMap<>();
-				x.put("OPECOD",rs.getString("OPECOD"));
-				x.put("OPEDES",rs.getString("OPEDES"));
+				x.put("OPECOD", rs.getString("OPECOD"));
+				x.put("OPEDES", rs.getString("OPEDES"));
+				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
 				list.add(x);
 			}
+			connection.close();
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getTipoFalta() throws SQLException {
+
+		String query = "select DISTINCT * from PUB.\"SPAARR\"";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("numenr", rs.getString("numenr"));
+				x.put("arrlib", rs.getString("arrlib"));
+				list.add(x);
+			}
+			connection.close();
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getMaq(String SECNUMENR) throws SQLException {
+
+		String query = "select * from PUB.\"SDTSEC\"a inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod where a.SECNUMENR= '"
+				+ SECNUMENR + "'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("ssecod", rs.getString("ssecod"));
+				x.put("SSEDES", rs.getString("SSEDES"));
+				list.add(x);
+			}
+			connection.close();
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getAllMaq() throws SQLException {
+
+		String query = "select * from PUB.\"SDTSEC\"a inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("ssecod", rs.getString("ssecod"));
+				x.put("SSEDES", rs.getString("SSEDES"));
+				list.add(x);
+			}
+			connection.close();
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getRef(String OFANUMENR) throws SQLException {
+
+		String query = "select * from PUB.\"SOFB\"a inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  where OFANUMENR= '"
+				+ OFANUMENR + "'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("PROREF", rs.getString("PROREF"));
+				x.put("PRODES1", rs.getString("PRODES1"));
+				list.add(x);
+			}
+			connection.close();
+			stmt.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getUsers() throws SQLException {
+
+		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("RESCOD", rs.getString("RESCOD"));
+				x.put("RESDES", rs.getString("RESDES"));
+				list.add(x);
+			}
+			connection.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -160,11 +286,10 @@ public class ConnectProgress {
 		return list;
 	}
 	
-	
-	public List<HashMap<String, String>> getMaq(String ofanumenr) throws SQLException {
+	public List<HashMap<String, String>> getSessoes() throws SQLException {
 
-		String query = "select * from PUB.\"SDTSEC\"a inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod where a.ssecod= '"+ofanumenr+"'";
-		
+		String query = "select * from PUB.\"SPASEC \" ";
+
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 		// Usa sempre assim que fecha os resources automaticamente
@@ -174,10 +299,13 @@ public class ConnectProgress {
 			while (rs.next()) {
 				// parser das operações
 				HashMap<String, String> x = new HashMap<>();
-				x.put("ssecod",rs.getString("ssecod"));
-				x.put("SSEDES",rs.getString("SSEDES"));
+				x.put("SECCOD", rs.getString("SECCOD"));
+				x.put("SECLIB", rs.getString("SECLIB"));
 				list.add(x);
 			}
+			connection.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
