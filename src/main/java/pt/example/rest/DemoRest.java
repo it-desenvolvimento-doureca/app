@@ -47,8 +47,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getOF(ofnum);
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getOF(ofnum);
+		return dados;
 	}
 	
 	
@@ -59,8 +59,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getOP(ofanumenr);
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getOP(ofanumenr);
+		return dados;
 	}
 	
 	
@@ -71,8 +71,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getallOP();
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getallOP();
+		return dados;
 	}
 	
 	@GET
@@ -82,8 +82,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getMaq(SECNUMENR);
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getMaq(SECNUMENR);
+		return dados;
 	}
 	
 	@GET
@@ -93,8 +93,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getAllMaq();
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getAllMaq();
+		return dados;
 	}
 	
 	
@@ -105,8 +105,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getTipoFalta();
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getTipoFalta();
+		return dados;
 	}
 	
 	@GET
@@ -116,8 +116,8 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getUsers();
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getUsers();
+		return dados;
 	}
 	
 	@GET
@@ -127,8 +127,19 @@ public class DemoRest {
 				
 		ConnectProgress connectionProgress = new ConnectProgress();
 		
-		 List<HashMap<String, String>> sofas =connectionProgress.getSessoes();
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getSessoes();
+		return dados;
+	}
+	
+	@GET
+	@Path("/listadefeitos")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getListaDefe() throws SQLException, ClassNotFoundException {
+				
+		ConnectProgress connectionProgress = new ConnectProgress();
+		
+		 List<HashMap<String, String>> dados =connectionProgress.getListaDefe();
+		return dados;
 	}
 	
 	@GET
@@ -139,8 +150,8 @@ public class DemoRest {
 
 		ConnectProgress connectionProgress = new ConnectProgress();
 
-		 List<HashMap<String, String>> sofas =connectionProgress.getRef(OFANUMENR);
-		return sofas;
+		 List<HashMap<String, String>> dados =connectionProgress.getRef(OFANUMENR);
+		return dados;
 	}
 
 

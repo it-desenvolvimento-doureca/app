@@ -16,12 +16,12 @@ public class ConnectProgress {
 
 	private static final String QUERY = "select * from PUB.\"SOFA\" where utimod= 'recep1'";
 	public static String querySofaGetAll = "select * from PUB.\"SOFA\" where utimod='%s'";
-
+	Connection globalconnection = null;
 	public static void main(String[] args) throws SQLException {
 	}
 
 	private Connection getConnection() {
-		Connection connection = null;
+		
 		try {
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
@@ -29,8 +29,8 @@ public class ConnectProgress {
 			String url = "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 
 			// get the openedge database connection
-			connection = DriverManager.getConnection(url);
-
+			globalconnection = DriverManager.getConnection(url);
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			// System.exit(1);
@@ -40,7 +40,7 @@ public class ConnectProgress {
 		} finally {
 			// connection.close();
 		}
-		return connection;
+		return globalconnection;
 	}
 
 	public List<String> getSofas() throws SQLException {
@@ -56,9 +56,10 @@ public class ConnectProgress {
 				String coffeeName = rs.getString("OFNUM");
 				x.add(coffeeName);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,9 +84,10 @@ public class ConnectProgress {
 				x.put("ofref", rs.getString("ofref"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,9 +113,10 @@ public class ConnectProgress {
 				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -139,9 +142,10 @@ public class ConnectProgress {
 				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -166,9 +170,10 @@ public class ConnectProgress {
 				x.put("arrlib", rs.getString("arrlib"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -194,9 +199,10 @@ public class ConnectProgress {
 				x.put("SSEDES", rs.getString("SSEDES"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -221,9 +227,10 @@ public class ConnectProgress {
 				x.put("SSEDES", rs.getString("SSEDES"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -249,9 +256,10 @@ public class ConnectProgress {
 				x.put("PRODES1", rs.getString("PRODES1"));
 				list.add(x);
 			}
-			connection.close();
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -276,9 +284,11 @@ public class ConnectProgress {
 				x.put("RESDES", rs.getString("RESDES"));
 				list.add(x);
 			}
-			connection.close();
+			
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -303,9 +313,39 @@ public class ConnectProgress {
 				x.put("SECLIB", rs.getString("SECLIB"));
 				list.add(x);
 			}
-			connection.close();
+			
 			stmt.close();
 			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<HashMap<String, String>> getListaDefe() throws SQLException {
+
+		String query = "select * from PUB.\"SPAQUA\" ";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("QUACOD", rs.getString("QUACOD"));
+				x.put("QUALIB", rs.getString("QUALIB"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
