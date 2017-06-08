@@ -17,11 +17,12 @@ public class ConnectProgress {
 	private static final String QUERY = "select * from PUB.\"SOFA\" where utimod= 'recep1'";
 	public static String querySofaGetAll = "select * from PUB.\"SOFA\" where utimod='%s'";
 	Connection globalconnection = null;
+
 	public static void main(String[] args) throws SQLException {
 	}
 
 	private Connection getConnection() {
-		
+
 		try {
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
@@ -30,7 +31,7 @@ public class ConnectProgress {
 
 			// get the openedge database connection
 			globalconnection = DriverManager.getConnection(url);
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			// System.exit(1);
@@ -238,6 +239,34 @@ public class ConnectProgress {
 		return list;
 	}
 
+	public List<HashMap<String, String>> getFamilias() throws SQLException {
+
+		String query = "select DISTINCT LEFT(QUACOD,2) as fam from PUB.\"SPAQUA\"";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("fam", rs.getString("fam"));
+				// x.put("SSEDES", rs.getString("SSEDES"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public List<HashMap<String, String>> getRef(String OFANUMENR) throws SQLException {
 
 		String query = "select * from PUB.\"SOFB\"a inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  where OFANUMENR= '"
@@ -284,7 +313,7 @@ public class ConnectProgress {
 				x.put("RESDES", rs.getString("RESDES"));
 				list.add(x);
 			}
-			
+
 			stmt.close();
 			rs.close();
 			connection.close();
@@ -295,7 +324,36 @@ public class ConnectProgress {
 		}
 		return list;
 	}
-	
+
+	public List<HashMap<String, String>> getUser(String RESCOD) throws SQLException {
+
+		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO' and RESCOD='" + RESCOD + "'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("RESCOD", rs.getString("RESCOD"));
+				x.put("RESDES", rs.getString("RESDES"));
+				list.add(x);
+			}
+
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public List<HashMap<String, String>> getSessoes() throws SQLException {
 
 		String query = "select * from PUB.\"SPASEC \" ";
@@ -313,7 +371,7 @@ public class ConnectProgress {
 				x.put("SECLIB", rs.getString("SECLIB"));
 				list.add(x);
 			}
-			
+
 			stmt.close();
 			rs.close();
 			connection.close();
@@ -324,7 +382,7 @@ public class ConnectProgress {
 		}
 		return list;
 	}
-	
+
 	public List<HashMap<String, String>> getListaDefe() throws SQLException {
 
 		String query = "select * from PUB.\"SPAQUA\" ";

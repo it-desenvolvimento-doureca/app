@@ -7,9 +7,9 @@
         <!--  <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
         
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:jboss/datasources/demoDS</jta-data-source>    
+        <jta-data-source>java:jboss/datasources/siip</jta-data-source>    
         <!-- Package: uk.co.example.domain -->
-        <class>pt.example.entity.User</class>
+        <class>pt.example.entity.Usere</class>
         
          <!-- Hibernate properties -->
         <properties>
