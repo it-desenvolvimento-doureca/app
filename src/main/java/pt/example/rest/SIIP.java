@@ -20,10 +20,12 @@ import javax.ws.rs.Produces;
 import pt.example.bootstrap.ConnectProgress;
 import pt.example.dao.RPOFDao;
 import pt.example.dao.RP_CONF_CHEF_SECDao;
+import pt.example.dao.RP_CONF_OPDao;
 import pt.example.dao.RPCONFUTZPERFDao;
 import pt.example.dao.UserDao;
 import pt.example.entity.RPOFCAB;
 import pt.example.entity.RP_CONF_CHEF_SEC;
+import pt.example.entity.RP_CONF_OP;
 import pt.example.entity.RPCONFUTZPERF;
 import pt.example.entity.User;
 
@@ -39,7 +41,10 @@ public class SIIP {
 	
 	@Inject
 	private RP_CONF_CHEF_SECDao dao2;
-
+	
+	@Inject
+	private RP_CONF_OPDao dao3;
+	
 	private ConnectProgress ConnectProgress;
 
 	@GET
@@ -115,8 +120,41 @@ public class SIIP {
 		return dao2.update(RP_CONF_CHEF_SEC);
 	}
 	
+	//RP_CONF_OP***************************************************************
 	
+	@GET
+	@Path("/getRP_CONF_OP")
+	@Produces("application/json")
+	public List<RP_CONF_OP> getRP_CONF_OP() {
+		return dao3.allEntries();
+	}
 	
+	@POST
+	@Path("/createRP_CONF_OP")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_CONF_OP insertRP_CONF_OP(final RP_CONF_OP data) {
+		System.out.println(data.getID_OP_SEC());
+		return dao3.create(data);
+	}
+	
+
+	@DELETE
+	@Path("/deleteRP_CONF_OP/{id}")
+	public void deleteRP_CONF_OP(@PathParam("id") Integer id) {
+		RP_CONF_OP RP_CONF_OP = new RP_CONF_OP();
+		RP_CONF_OP.setID_CONF_OP(id);
+		dao3.delete(RP_CONF_OP);
+	}
+	
+	@PUT
+	@Path("/updateRP_CONF_OP")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_CONF_OP updateRP_CONF_OP(final RP_CONF_OP RP_CONF_OP) {
+		RP_CONF_OP.setID_OP_PRINC(RP_CONF_OP.getID_OP_PRINC());
+		return dao3.update(RP_CONF_OP);
+	}
 
 	//CRIAR FICHEIRO****************************************************************
 

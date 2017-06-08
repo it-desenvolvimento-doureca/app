@@ -1,7 +1,5 @@
 package pt.example.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,20 +28,20 @@ public class RP_CONF_OP {
 		return ID_OP_PRINC;
 	}
 
-	@Column(name = "ID_OID_OP_SECP_PRINC")
+	@Column(name = "ID_OP_SEC")
 	public String getID_OP_SEC() {
 		return ID_OP_SEC;
 	}
 
 	public void setID_CONF_OP(Integer ID_CONF_OP) {
-		ID_CONF_OP = ID_CONF_OP;
+		this.ID_CONF_OP = ID_CONF_OP;
 	}
 
 	public void setID_OP_PRINC(String ID_OP_PRINC) {
-		ID_OP_PRINC = ID_OP_PRINC;
+		this.ID_OP_PRINC = ID_OP_PRINC;
 	}
 
-	public void setID_OP_SEC(String sEC_ID_OP_SECNUM) {
-		ID_OP_SEC = ID_OP_SEC;
+	public void setID_OP_SEC(String ID_OP_SEC) {
+		this.ID_OP_SEC = ID_OP_SEC;
 	}
 }
