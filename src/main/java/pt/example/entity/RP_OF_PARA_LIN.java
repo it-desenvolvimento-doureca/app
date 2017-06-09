@@ -25,6 +25,8 @@ public class RP_OF_PARA_LIN {
 	private Date DATA_HORA_MODIF;
 	private String TIPO_PARAGEM;
 	private String DES_PARAGEM;
+	private String MOMENTO_PARAGEM;
+
 	private String ESTADO;
 
 	@Id
@@ -87,6 +89,15 @@ public class RP_OF_PARA_LIN {
 	@Column(name = "ESTADO")
 	public String getESTADO() {
 		return ESTADO;
+	}
+
+	@Column(name = "MOMENTO_PARAGEM")
+	public String getMOMENTO_PARAGEM() {
+		return MOMENTO_PARAGEM;
+	}
+
+	public void setMOMENTO_PARAGEM(String mOMENTO_PARAGEM) {
+		MOMENTO_PARAGEM = mOMENTO_PARAGEM;
 	}
 
 	public void setID_PARA_LIN(Integer iD_PARA_LIN) {

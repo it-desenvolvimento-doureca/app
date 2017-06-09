@@ -21,8 +21,7 @@ public class ConnectProgress {
 	public static void main(String[] args) throws SQLException {
 	}
 
-	private Connection getConnection() {
-
+	private Connection getConnection() throws SQLException {
 		try {
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
@@ -34,9 +33,11 @@ public class ConnectProgress {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			globalconnection.close();
 			// System.exit(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			globalconnection.close();
 			// System.exit(2);
 		} finally {
 			// connection.close();
@@ -64,6 +65,8 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
+			globalconnection.close();
 		}
 		return x;
 	}
@@ -92,6 +95,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -121,6 +125,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -150,6 +155,39 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getallOPNOTIN(String data) throws SQLException {
+		String query = "select * from PUB.\"SDTOPP\"";
+		if ( !data.equals("null")) {
+			query += " where OPECOD not in(" + data + ")";
+		}
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("OPECOD", rs.getString("OPECOD"));
+				x.put("OPEDES", rs.getString("OPEDES"));
+				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -178,6 +216,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -207,6 +246,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -235,6 +275,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -263,6 +304,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -292,13 +334,14 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
 
 	public List<HashMap<String, String>> getUsers() throws SQLException {
 
-		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO'";
+		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO' ";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -321,6 +364,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -350,6 +394,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -379,6 +424,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}
@@ -407,6 +453,7 @@ public class ConnectProgress {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			globalconnection.close();
 		}
 		return list;
 	}

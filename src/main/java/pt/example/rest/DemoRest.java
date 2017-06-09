@@ -9,12 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import pt.example.bootstrap.ConnectProgress;
+import pt.example.entity.RP_CONF_OP_NPREV;
 
 @Stateless
 @Path("/demo")
@@ -52,6 +54,17 @@ public class DemoRest {
 		ConnectProgress connectionProgress = new ConnectProgress();
 
 		List<HashMap<String, String>> dados = connectionProgress.getallOP();
+		return dados;
+	}
+
+	@GET
+	@Path("/allopNOTIN/{data}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> allopNOTIN(@PathParam("data") String data)
+			throws SQLException, ClassNotFoundException {
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getallOPNOTIN(data);
 		return dados;
 	}
 
@@ -145,12 +158,11 @@ public class DemoRest {
 		List<HashMap<String, String>> dados = connectionProgress.getRef(OFANUMENR);
 		return dados;
 	}
-	
+
 	@GET
 	@Path("/familias")
 	@Produces("application/json")
-	public List<HashMap<String, String>> getFamilias()
-			throws SQLException, ClassNotFoundException {
+	public List<HashMap<String, String>> getFamilias() throws SQLException, ClassNotFoundException {
 
 		ConnectProgress connectionProgress = new ConnectProgress();
 
