@@ -2,6 +2,7 @@ package pt.example.entity;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.TimeZone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,14 +16,14 @@ import javax.persistence.Table;
 public class RP_OF_PREP_LIN {
 
 	private Integer ID_PREP_LIN;
-	private Integer ID_OP_LIN;
+	private Integer ID_OP_CAB;
 	private Date DATA_INI;
 	private Time HORA_INI;
 	private Date DATA_FIM;
 	private Time HORA_FIM;
 	private String ID_UTZ_CRIA;
 	private String ID_UTZ_MODIF;
-	private Date DATA_HORA_MODIF;
+	private TimeZone DATA_HORA_MODIF;
 	private String ESTADO;
 
 	@Id
@@ -32,9 +33,9 @@ public class RP_OF_PREP_LIN {
 		return ID_PREP_LIN;
 	}
 
-	@Column(name = "ID_OP_LIN")
-	public Integer getID_OP_LIN() {
-		return ID_OP_LIN;
+	@Column(name = "ID_OP_CAB")
+	public Integer getID_OP_CAB() {
+		return ID_OP_CAB;
 	}
 
 	@Column(name = "DATA_INI")
@@ -68,7 +69,7 @@ public class RP_OF_PREP_LIN {
 	}
 
 	@Column(name = "DATA_HORA_MODIF")
-	public Date getDATA_HORA_MODIF() {
+	public TimeZone getDATA_HORA_MODIF() {
 		return DATA_HORA_MODIF;
 	}
 
@@ -81,8 +82,8 @@ public class RP_OF_PREP_LIN {
 		ID_PREP_LIN = iD_PREP_LIN;
 	}
 
-	public void setID_OP_LIN(Integer iD_OP_LIN) {
-		ID_OP_LIN = iD_OP_LIN;
+	public void setID_OP_CAB(Integer iD_OP_CAB) {
+		ID_OP_CAB = iD_OP_CAB;
 	}
 
 	public void setDATA_INI(Date dATA_INI) {
@@ -109,7 +110,7 @@ public class RP_OF_PREP_LIN {
 		ID_UTZ_MODIF = iD_UTZ_MODIF;
 	}
 
-	public void setDATA_HORA_MODIF(Date dATA_HORA_MODIF) {
+	public void setDATA_HORA_MODIF(TimeZone dATA_HORA_MODIF) {
 		DATA_HORA_MODIF = dATA_HORA_MODIF;
 	}
 

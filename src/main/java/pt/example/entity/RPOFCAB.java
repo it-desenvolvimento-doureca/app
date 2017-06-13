@@ -1,6 +1,7 @@
 package pt.example.entity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "RP_OF_CAB")
 public class RPOFCAB {
 
-	private Integer ID_CAB;
+	private Integer ID_OF_CAB;
 	private String OF_NUM;
 	private String OF_OBS;
 	private String OP_NUM;
@@ -24,17 +25,17 @@ public class RPOFCAB {
 	private String MAQ_DES;
 	private String ID_UTZ_CRIA;
 	private String NOME_UTZ_CRIA;
-	private Date DATA_HORA_CRIA;
+	private Timestamp DATA_HORA_CRIA;
 	private String ID_UTZ_MODIF;
 	private String NOME_UTZ_MODIF;
-	private Date DATA_HORA_MODIF;
+	private Timestamp DATA_HORA_MODIF;
 	private String ESTADO;
 
 	@Id
-	@Column(name = "ID_CAB")
+	@Column(name = "ID_OF_CAB")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getID_CAB() {
-		return ID_CAB;
+	public Integer getID_OF_CAB() {
+		return ID_OF_CAB;
 	}
 
 	@Column(name = "OF_NUM")
@@ -88,7 +89,7 @@ public class RPOFCAB {
 	}
 
 	@Column(name = "DATA_HORA_CRIA")
-	public Date getDATA_HORA_CRIA() {
+	public Timestamp getDATA_HORA_CRIA() {
 		return DATA_HORA_CRIA;
 	}
 
@@ -103,7 +104,7 @@ public class RPOFCAB {
 	}
 
 	@Column(name = "DATA_HORA_MODIF")
-	public Date getDATA_HORA_MODIF() {
+	public Timestamp getDATA_HORA_MODIF() {
 		return DATA_HORA_MODIF;
 	}
 
@@ -112,8 +113,8 @@ public class RPOFCAB {
 		return ESTADO;
 	}
 
-	public void setID_CAB(Integer iD_CAB) {
-		ID_CAB = iD_CAB;
+	public void setID_OF_CAB(Integer iD_OF_CAB) {
+		ID_OF_CAB = iD_OF_CAB;
 	}
 
 	public void setOF_NUM(String oF_NUM) {
@@ -156,7 +157,7 @@ public class RPOFCAB {
 		NOME_UTZ_CRIA = nOME_UTZ_CRIA;
 	}
 
-	public void setDATA_HORA_CRIA(Date dATA_HORA_CRIA) {
+	public void setDATA_HORA_CRIA(Timestamp dATA_HORA_CRIA) {
 		DATA_HORA_CRIA = dATA_HORA_CRIA;
 	}
 
@@ -168,7 +169,7 @@ public class RPOFCAB {
 		NOME_UTZ_MODIF = nOME_UTZ_MODIF;
 	}
 
-	public void setDATA_HORA_MODIF(Date dATA_HORA_MODIF) {
+	public void setDATA_HORA_MODIF(Timestamp dATA_HORA_MODIF) {
 		DATA_HORA_MODIF = dATA_HORA_MODIF;
 	}
 

@@ -26,8 +26,8 @@ public class ConnectProgress {
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
 			// the openedge url
-			String url = "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
-
+			String url = "jdbc:datadirect:openedge://192.168.40.112:20613;DatabaseName=silv-ver;User=SYSPROGRESS;Password=SYSPROGRESS;";
+			//String url = "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 			// get the openedge database connection
 			globalconnection = DriverManager.getConnection(url);
 
@@ -325,6 +325,12 @@ public class ConnectProgress {
 				HashMap<String, String> x = new HashMap<>();
 				x.put("PROREF", rs.getString("PROREF"));
 				x.put("PRODES1", rs.getString("PRODES1"));
+				x.put("VA1REF", rs.getString("VA1REF"));
+				x.put("VA2REF", rs.getString("VA2REF"));
+				x.put("INDREF", rs.getString("INDREF"));
+				x.put("OFBQTEINI", rs.getString("OFBQTEINI"));
+				x.put("INDNUMENR", rs.getString("INDNUMENR"));
+				
 				list.add(x);
 			}
 			stmt.close();

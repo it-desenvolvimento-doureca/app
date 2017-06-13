@@ -22,12 +22,18 @@ import pt.example.dao.RPOFDao;
 import pt.example.dao.RP_CONF_CHEF_SECDao;
 import pt.example.dao.RP_CONF_OPDao;
 import pt.example.dao.RP_CONF_OP_NPREVDao;
+import pt.example.dao.RP_OF_OP_CABDao;
+import pt.example.dao.RP_OF_OP_LINDao;
+import pt.example.dao.RP_OF_PREP_LINDao;
 import pt.example.dao.RPCONFUTZPERFDao;
 import pt.example.dao.UserDao;
 import pt.example.entity.RPOFCAB;
 import pt.example.entity.RP_CONF_CHEF_SEC;
 import pt.example.entity.RP_CONF_OP;
 import pt.example.entity.RP_CONF_OP_NPREV;
+import pt.example.entity.RP_OF_OP_CAB;
+import pt.example.entity.RP_OF_OP_LIN;
+import pt.example.entity.RP_OF_PREP_LIN;
 import pt.example.entity.RPCONFUTZPERF;
 import pt.example.entity.User;
 
@@ -51,16 +57,14 @@ public class SIIP {
 	private RP_CONF_OP_NPREVDao dao4;
 	
 	@Inject
-	private RPOFDao dao5;
-
-	private ConnectProgress ConnectProgress;
-
-	@GET
-	@Path("/user")
-	@Produces("application/json")
-	public List<RPOFCAB> listof() {
-		return dao.allEntries();
-	}
+	private RP_OF_OP_CABDao dao6;
+	
+	@Inject
+	private RP_OF_OP_LINDao dao7;
+	
+	@Inject
+	private RP_OF_PREP_LINDao dao8;
+	
 
 	// RP_CONF_UTZ_PERF***************************************************************
 	@POST
@@ -186,14 +190,61 @@ public class SIIP {
 	}
 
 	// RPOFCAB***********************************************************
+
+	@GET
+	@Path("/user")
+	@Produces("application/json")
+	public List<RPOFCAB> listof() {
+		return dao.allEntries();
+	}
+	
+	@GET
+	@Path("/listofcurrentof/{id}")
+	@Produces("application/json")
+	public List<RPOFCAB> listofcurrentof(@PathParam("id") String id) {
+		return dao.getbyid(id);
+	}
+	
 	@POST
 	@Path("/createRP_OF_CAB")
 	@Consumes("*/*")
 	@Produces("application/json")
 	public RPOFCAB insertRPOFCAB(final RPOFCAB data) {
-		return dao5.create(data);
+		return dao.create(data);
 	}
 
+	// RP_OF_OP_CAB*************************************************************
+
+	@POST
+	@Path("/createRP_OF_OP_CAB")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_CAB insertRP_OF_OP_CAB(final RP_OF_OP_CAB data) {
+		return dao6.create(data);
+	}
+	
+	
+	//RP_OF_OP_LIN************************************************************
+	
+	@POST
+	@Path("/createRP_OF_OP_LIN")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_LIN insertRP_OF_OP_LIN(final RP_OF_OP_LIN data) {
+		return dao7.create(data);
+	}
+	
+	//RP_OF_PREP_LIN***********************************
+	
+	@POST
+	@Path("/createRP_OF_PREP_LIN")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_PREP_LIN insertRP_OF_PREP_LIN(final RP_OF_PREP_LIN data) {
+		return dao8.create(data);
+	}
+	
+	
 	// CRIAR
 	// FICHEIRO****************************************************************
 

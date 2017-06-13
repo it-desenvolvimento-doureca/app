@@ -2,6 +2,7 @@ package pt.example.entity;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class RP_OF_OP_CAB {
 	private String ID_UTZ_MODIF;
 	private String NOME_UTZ_MODIF;
 	private String PERFIL_MODIF;
-	private Date DATA_HORA_MODIF;
+	private Timestamp DATA_HORA_MODIF;
 	private String ESTADO;
 	private Time TEMPO_PREP_TOTAL;
 	private Time TEMPO_PARA_TOTAL;
@@ -76,7 +77,7 @@ public class RP_OF_OP_CAB {
 	}
 
 	@Column(name = "DATA_HORA_MODIF")
-	public Date getDATA_HORA_MODIF() {
+	public Timestamp getDATA_HORA_MODIF() {
 		return DATA_HORA_MODIF;
 	}
 
@@ -189,7 +190,7 @@ public class RP_OF_OP_CAB {
 		ID_UTZ_MODIF = iD_UTZ_MODIF;
 	}
 
-	public void setDATA_HORA_MODIF(Date dATA_HORA_MODIF) {
+	public void setDATA_HORA_MODIF(Timestamp dATA_HORA_MODIF) {
 		DATA_HORA_MODIF = dATA_HORA_MODIF;
 	}
 
