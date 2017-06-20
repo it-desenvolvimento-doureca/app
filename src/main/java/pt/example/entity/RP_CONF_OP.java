@@ -14,8 +14,8 @@ public class RP_CONF_OP {
 	private Integer ID_CONF_OP;
 	private String ID_OP_PRINC;
 	private String ID_OP_SEC;
-	private String NAME_OP_SEC;
-	private String NAME_OP_PRINC;
+	private String NOME_OP_SEC;
+	private String NOME_OP_PRINC;
 
 	@Id
 	@Column(name = "ID_CONF_OP")
@@ -34,22 +34,22 @@ public class RP_CONF_OP {
 		return ID_OP_SEC;
 	}
 
-	@Column(name = "NAME_OP_SEC")
-	public String getNAME_OP_SEC() {
-		return NAME_OP_SEC;
+	@Column(name = "NOME_OP_SEC")
+	public String getNOME_OP_SEC() {
+		return NOME_OP_SEC;
 	}
 
-	@Column(name = "NAME_OP_PRINC")
-	public String getNAME_OP_PRINC() {
-		return NAME_OP_PRINC;
+	@Column(name = "NOME_OP_PRINC")
+	public String getNOME_OP_PRINC() {
+		return NOME_OP_PRINC;
 	}
 
-	public void setNAME_OP_SEC(String nAME_OP_SEC) {
-		NAME_OP_SEC = nAME_OP_SEC;
+	public void setNOME_OP_SEC(String nOME_OP_SEC) {
+		NOME_OP_SEC = nOME_OP_SEC;
 	}
 
-	public void setNAME_OP_PRINC(String nAME_OP_PRINC) {
-		NAME_OP_PRINC = nAME_OP_PRINC;
+	public void setNOME_OP_PRINC(String nOME_OP_PRINC) {
+		NOME_OP_PRINC = nOME_OP_PRINC;
 	}
 
 	public void setID_CONF_OP(Integer ID_CONF_OP) {

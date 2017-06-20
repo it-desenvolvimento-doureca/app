@@ -1,6 +1,7 @@
 package pt.example.entity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
 
 import javax.persistence.Column;
@@ -21,9 +22,9 @@ public class RP_OF_DEF_LIN {
 	private String COD_DEF;
 	private String DESC_DEF;
 	private Integer QUANT_DEF;
-	private Date DATA_HORA_REG;
-	private Number PERC_OBJETIV;
-	private Number PERC_DEF;
+	private Timestamp DATA_HORA_REG;
+	private Float PERC_OBJETIV;
+	private Float PERC_DEF;
 
 	@Id
 	@Column(name = "ID_DEF_LIN")
@@ -63,17 +64,17 @@ public class RP_OF_DEF_LIN {
 	}
 
 	@Column(name = "DATA_HORA_REG")
-	public Date getDATA_HORA_REG() {
+	public Timestamp getDATA_HORA_REG() {
 		return DATA_HORA_REG;
 	}
 
 	@Column(name = "PERC_OBJETIV")
-	public Number getPERC_OBJETIV() {
+	public Float getPERC_OBJETIV() {
 		return PERC_OBJETIV;
 	}
 
 	@Column(name = "PERC_DEF")
-	public Number getPERC_DEF() {
+	public Float getPERC_DEF() {
 		return PERC_DEF;
 	}
 
@@ -105,15 +106,15 @@ public class RP_OF_DEF_LIN {
 		QUANT_DEF = qUANT_DEF;
 	}
 
-	public void setDATA_HORA_REG(Date dATA_HORA_REG) {
+	public void setDATA_HORA_REG(Timestamp dATA_HORA_REG) {
 		DATA_HORA_REG = dATA_HORA_REG;
 	}
 
-	public void setPERC_OBJETIV(Number pERC_OBJETIV) {
+	public void setPERC_OBJETIV(Float pERC_OBJETIV) {
 		PERC_OBJETIV = pERC_OBJETIV;
 	}
 
-	public void setPERC_DEF(Number pERC_DEF) {
+	public void setPERC_DEF(Float pERC_DEF) {
 		PERC_DEF = pERC_DEF;
 	}
 }

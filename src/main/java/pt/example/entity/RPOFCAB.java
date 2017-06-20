@@ -17,6 +17,7 @@ public class RPOFCAB {
 	private Integer ID_OF_CAB;
 	private String OF_NUM;
 	private String OF_OBS;
+	private String OP_COD;
 	private String OP_NUM;
 	private String OP_DES;
 	private String SEC_NUM;
@@ -48,9 +49,9 @@ public class RPOFCAB {
 		return OF_OBS;
 	}
 
-	@Column(name = "OP_NUM")
-	public String getOP_NUM() {
-		return OP_NUM;
+	@Column(name = "OP_COD")
+	public String getOP_COD() {
+		return OP_COD;
 	}
 
 	@Column(name = "OP_DES")
@@ -112,6 +113,15 @@ public class RPOFCAB {
 	public String getESTADO() {
 		return ESTADO;
 	}
+	
+	@Column(name = "OP_NUM")
+	public String getOP_NUM() {
+		return OP_NUM;
+	}
+
+	public void setOP_NUM(String oP_NUM) {
+		OP_NUM = oP_NUM;
+	}
 
 	public void setID_OF_CAB(Integer iD_OF_CAB) {
 		ID_OF_CAB = iD_OF_CAB;
@@ -125,8 +135,8 @@ public class RPOFCAB {
 		OF_OBS = oF_OBS;
 	}
 
-	public void setOP_NUM(String oP_NUM) {
-		OP_NUM = oP_NUM;
+	public void setOP_COD(String oP_COD) {
+		OP_COD = oP_COD;
 	}
 
 	public void setOP_DES(String oP_DES) {

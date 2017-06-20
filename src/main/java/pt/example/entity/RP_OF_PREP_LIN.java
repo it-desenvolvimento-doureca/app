@@ -2,6 +2,7 @@ package pt.example.entity;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.TimeZone;
 
 import javax.persistence.Column;
@@ -23,11 +24,11 @@ public class RP_OF_PREP_LIN {
 	private Time HORA_FIM;
 	private String ID_UTZ_CRIA;
 	private String ID_UTZ_MODIF;
-	private TimeZone DATA_HORA_MODIF;
+	private Timestamp DATA_HORA_MODIF;
 	private String ESTADO;
 
 	@Id
-	@Column(name = "ID_PARA_LIN")
+	@Column(name = "ID_PREP_LIN")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getID_PREP_LIN() {
 		return ID_PREP_LIN;
@@ -69,7 +70,7 @@ public class RP_OF_PREP_LIN {
 	}
 
 	@Column(name = "DATA_HORA_MODIF")
-	public TimeZone getDATA_HORA_MODIF() {
+	public Timestamp getDATA_HORA_MODIF() {
 		return DATA_HORA_MODIF;
 	}
 
@@ -110,7 +111,7 @@ public class RP_OF_PREP_LIN {
 		ID_UTZ_MODIF = iD_UTZ_MODIF;
 	}
 
-	public void setDATA_HORA_MODIF(TimeZone dATA_HORA_MODIF) {
+	public void setDATA_HORA_MODIF(Timestamp dATA_HORA_MODIF) {
 		DATA_HORA_MODIF = dATA_HORA_MODIF;
 	}
 

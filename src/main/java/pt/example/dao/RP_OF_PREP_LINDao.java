@@ -12,11 +12,11 @@ public class RP_OF_PREP_LINDao extends GenericDaoJpaImpl<RP_OF_PREP_LIN,Integer>
 	public RP_OF_PREP_LINDao() {
 		super(RP_OF_PREP_LIN.class);
 	}
-	public List<RPCONFUTZPERF> getbyid(String id_utz) {
+	public List<RP_OF_PREP_LIN> getbyid(Integer id) {
 
-		Query query = entityManager.createQuery("Select a from RP_OF_PREP_LIN a where a.ID_UTZ_CRIA = :id");
-		query.setParameter("id", id_utz);
-		List<RPCONFUTZPERF> utz = query.getResultList();
+		Query query = entityManager.createQuery("Select a from RP_OF_PREP_LIN a where a.ID_OP_CAB = :id and a.ESTADO NOT IN ('C')");
+		query.setParameter("id", id);
+		List<RP_OF_PREP_LIN> utz = query.getResultList();
 		return utz;
 
 	}

@@ -81,13 +81,13 @@ public class DemoRest {
 	}
 
 	@GET
-	@Path("/allmaquina")
+	@Path("/allmaquina/{SECNUMENR}")
 	@Produces("application/json")
-	public List<HashMap<String, String>> Allmaquina() throws SQLException, ClassNotFoundException {
+	public List<HashMap<String, String>> Allmaquina(@PathParam("SECNUMENR") String SECCOD) throws SQLException, ClassNotFoundException {
 
 		ConnectProgress connectionProgress = new ConnectProgress();
 
-		List<HashMap<String, String>> dados = connectionProgress.getAllMaq();
+		List<HashMap<String, String>> dados = connectionProgress.getAllMaq(SECCOD);
 		return dados;
 	}
 
@@ -136,17 +136,7 @@ public class DemoRest {
 		return dados;
 	}
 
-	@GET
-	@Path("/listadefeitos")
-	@Produces("application/json")
-	public List<HashMap<String, String>> getListaDefe() throws SQLException, ClassNotFoundException {
-
-		ConnectProgress connectionProgress = new ConnectProgress();
-
-		List<HashMap<String, String>> dados = connectionProgress.getListaDefe();
-		return dados;
-	}
-
+	
 	@GET
 	@Path("/referencias/{OFANUMENR}")
 	@Produces("application/json")
@@ -169,5 +159,18 @@ public class DemoRest {
 		List<HashMap<String, String>> dados = connectionProgress.getFamilias();
 		return dados;
 	}
+	
+	@GET
+	@Path("/defeitos/{fam}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getDefeitos(@PathParam("fam") String fam) throws SQLException, ClassNotFoundException {
+
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getDefeitos(fam);
+		return dados;
+	}
+	
+	
 
 }

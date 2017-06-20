@@ -15,7 +15,7 @@ public class RP_CONF_OP_NPREV {
 
 	private Integer ID_CONF_OP_NPREV;
 	private String ID_OP;
-	private String NAME_OP;
+	private String NOME_OP;
 	private String SECNUMENR1_OP;
 
 	@Id
@@ -30,9 +30,9 @@ public class RP_CONF_OP_NPREV {
 		return ID_OP;
 	}
 
-	@Column(name = "NAME_OP")
-	public String getNAME_OP() {
-		return NAME_OP;
+	@Column(name = "NOME_OP")
+	public String getNOME_OP() {
+		return NOME_OP;
 	}
 
 	@Column(name = "SECNUMENR1_OP")
@@ -44,8 +44,8 @@ public class RP_CONF_OP_NPREV {
 		SECNUMENR1_OP = sECNUMENR1_OP;
 	}
 
-	public void setNAME_OP(String name_OP) {
-		NAME_OP = name_OP;
+	public void setNOME_OP(String name_OP) {
+		NOME_OP = name_OP;
 	}
 
 	public void setID_CONF_OP_NPREV(Integer iD_CONF_OP_NPREV) {

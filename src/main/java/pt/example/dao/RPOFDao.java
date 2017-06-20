@@ -20,5 +20,14 @@ public class RPOFDao extends GenericDaoJpaImpl<RPOFCAB, Integer> implements Gene
 		return utz;
 
 	}
+	
+	public List<RPOFCAB> getof(Integer id) {
+
+		Query query = entityManager.createQuery("Select a from RPOFCAB a where a.ID_OF_CAB = :id");
+		query.setParameter("id", id);
+		List<RPOFCAB> utz = query.getResultList();
+		return utz;
+
+	}
 
 }
