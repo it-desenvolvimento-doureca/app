@@ -71,7 +71,7 @@ public class SIIP {
 
 	@Inject
 	private RP_OF_PREP_LINDao dao8;
-	
+
 	@Inject
 	private RP_OF_PARA_LINDao dao9;
 
@@ -228,6 +228,14 @@ public class SIIP {
 		return dao.getof(id);
 	}
 
+	@GET
+	@Path("/verifica/{of_num}/{op_cod}/{op_num}")
+	@Produces("application/json")
+	public List<RPOFCAB> verifica(@PathParam("of_num") String of_num, @PathParam("op_cod") String op_cod,
+			@PathParam("op_num") String op_num) {
+		return dao.verifica(of_num, op_cod, op_num);
+	}
+
 	@POST
 	@Path("/createRP_OF_CAB")
 	@Consumes("*/*")
@@ -263,10 +271,24 @@ public class SIIP {
 	}
 	
 	@GET
+	@Path("/checkuser/{user}")
+	@Produces("application/json")
+	public List<RP_OF_OP_CAB> checkuser( @PathParam("user") String user) {
+		return dao6.checkuser(user);
+	}
+
+	@GET
 	@Path("/getRP_OF_OP_CABid/{id}")
 	@Produces("application/json")
 	public List<RP_OF_OP_CAB> getdataof(@PathParam("id") Integer id) {
 		return dao6.getid(id);
+	}
+	
+	@GET
+	@Path("/getMaxID")
+	@Produces("application/json")
+	public List<Integer> getMaxID() {
+		return dao6.getMaxID();
 	}
 
 	@PUT
@@ -294,28 +316,28 @@ public class SIIP {
 	public List<RP_OF_OP_LIN> getbyid(@PathParam("id") Integer id) {
 		return dao7.getbyid(id);
 	}
-	
+
 	@GET
 	@Path("/getRP_OF_OP_LIN/{id}")
 	@Produces("application/json")
 	public List<RP_OF_OP_LIN> getid(@PathParam("id") Integer id) {
 		return dao7.getid(id);
 	}
-	
+
 	@GET
 	@Path("/getRP_OF_OP_LINallid/{id}")
 	@Produces("application/json")
 	public List<RP_OF_OP_LIN> getallbyid(@PathParam("id") Integer id) {
 		return dao7.getallbyid(id);
 	}
-	
+
 	@GET
 	@Path("/getRP_OF_OP_LINOp/{id}")
 	@Produces("application/json")
 	public List<RP_OF_OP_LIN> getop(@PathParam("id") Integer id) {
 		return dao7.getop(id);
 	}
-	
+
 	@PUT
 	@Path("/updateRP_OF_OP_LIN")
 	@Consumes("*/*")
@@ -324,6 +346,7 @@ public class SIIP {
 		RP_OF_OP_LIN.setQUANT_DEF_TOTAL(RP_OF_OP_LIN.getQUANT_DEF_TOTAL());
 		return dao7.update(RP_OF_OP_LIN);
 	}
+
 	// RP_OF_PREP_LIN***********************************
 	@GET
 	@Path("/getbyidRP_OF_PREP_LIN/{id}")
@@ -357,14 +380,14 @@ public class SIIP {
 	public List<RP_OF_PARA_LIN> getbyallID_OP_CAB(@PathParam("id") Integer id) {
 		return dao9.getbyallID_OP_CAB(id);
 	}
-	
+
 	@GET
 	@Path("/getbyidRP_OF_PARA_LIN/{id}")
 	@Produces("application/json")
 	public List<RP_OF_PARA_LIN> getbyidRP_OF_PARA_LIN(@PathParam("id") Integer id) {
 		return dao9.getbyid(id);
 	}
-	
+
 	@GET
 	@Path("/getbyid_op_cabRP_OF_PARA_LIN/{id}")
 	@Produces("application/json")
@@ -398,22 +421,21 @@ public class SIIP {
 	public RP_OF_DEF_LIN insertRP_OF_DEF_LIN(final RP_OF_DEF_LIN data) {
 		return dao5.create(data);
 	}
-	
 
 	@GET
 	@Path("/getbyidRP_OF_DEF_LIN/{id}/{id2}")
 	@Produces("application/json")
-	public List<RP_OF_DEF_LIN> getbyRP_OF_DEF_LIN(@PathParam("id") String id,@PathParam("id2") Integer id2) {
-		return dao5.getbyid(id,id2);
+	public List<RP_OF_DEF_LIN> getbyRP_OF_DEF_LIN(@PathParam("id") String id, @PathParam("id2") Integer id2) {
+		return dao5.getbyid(id, id2);
 	}
-	
+
 	@GET
 	@Path("/getbyidDEF/{id}")
 	@Produces("application/json")
 	public List<RP_OF_DEF_LIN> getbyidDEF(@PathParam("id") Integer id) {
 		return dao5.getbyidDEF(id);
 	}
-	
+
 	@PUT
 	@Path("/updateRP_OF_DEF_LIN")
 	@Consumes("*/*")
