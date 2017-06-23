@@ -16,7 +16,7 @@ public class RP_OF_DEF_LINDao extends GenericDaoJpaImpl<RP_OF_DEF_LIN,Integer> i
 	
 	public List<RP_OF_DEF_LIN> getbyid(String id, Integer id2) {
 
-		Query query = entityManager.createQuery("Select a from RP_OF_DEF_LIN a where substring(a.COD_DEF, 1, 2) = :id and ID_OP_LIN = :id2");
+		Query query = entityManager.createQuery("Select a from RP_OF_DEF_LIN a where substring(a.COD_DEF, 1, 2) = :id and ID_OP_LIN = :id2 order by COD_DEF asc");
 		query.setParameter("id", id);
 		query.setParameter("id2", id2);
 		List<RP_OF_DEF_LIN> utz = query.getResultList();
