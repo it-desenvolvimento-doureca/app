@@ -9,15 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="assets/font-awesome.min.css"
-  />
+  <link rel="stylesheet" type="text/css" href="assets/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/primeng.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/theme.css" />
   <script src="assets/web-animations.min.js"></script>
+  
 
 <link href="styles.7b844ab5d5535251836e.bundle.css" rel="stylesheet"/></head>
+ <a id="go-button" >
+      <i class="icon-fullscreen" style="margin:4px 4px 0 0; font-size: 60px; color: black;"></i>
+    </a>
 
-<body onselectstart="return false">
+<body id="element" onselectstart="return false">
   <div class="col-md-12 col-md-offset-12 mainpage" style="float:left; min-height: 80%;">
     <app-root>Loading...</app-root>
   </div>
@@ -35,6 +38,82 @@
       </tr>
     </table>
   </div>
-<script type="text/javascript" src="inline.12a9f811851fa132a086.bundle.js"></script><script type="text/javascript" src="polyfills.adb381736102a3f72132.bundle.js"></script><script type="text/javascript" src="scripts.34e3ad3dccf413449956.bundle.js"></script><script type="text/javascript" src="vendor.ea9cc93e78e9c596b95a.bundle.js"></script><script type="text/javascript" src="main.fb1ec69ad66891276dae.bundle.js"></script></body>
+<script type="text/javascript" src="inline.54d1e24b42ac78d5d47c.bundle.js"></script><script type="text/javascript" src="polyfills.a6095c137edf51c8fa6d.bundle.js"></script><script type="text/javascript" src="scripts.34e3ad3dccf413449956.bundle.js"></script><script type="text/javascript" src="vendor.ea9cc93e78e9c596b95a.bundle.js"></script><script type="text/javascript" src="main.719a26affea31c7e52a5.bundle.js"></script></body>
 
 </html>
+
+
+<style type="text/css">
+
+  
+
+  #go-button {
+    right: 34px;
+    top: 20px;
+    cursor: pointer;
+    float: right;
+    position: fixed;
+    z-index: 99999;
+  }
+  /* webkit requires explicit width, height = 100% of sceeen */
+  /* webkit also takes margin into account in full screen also - so margin should be removed (otherwise black areas will be seen) */
+
+  #element:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+    margin: 0;
+    overflow: auto;
+  }
+</style>
+
+<script>
+
+$(document).on('fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange', function() {
+	if(IsFullScreenCurrently()) {
+	$('#go-button').hide();
+	}
+	else {
+		$('#go-button').show();
+	}
+});
+
+  /* Get into full screen */
+  function GoInFullscreen(element) {
+    
+    if (element.requestFullscreen)
+      element.requestFullscreen();
+    else if (element.mozRequestFullScreen)
+      element.mozRequestFullScreen();
+    else if (element.webkitRequestFullscreen)
+      element.webkitRequestFullscreen();
+    else if (element.msRequestFullscreen)
+      element.msRequestFullscreen();
+  }
+
+  /* Get out of full screen */
+  function GoOutFullscreen() {
+    if (document.exitFullscreen)
+      document.exitFullscreen();
+    else if (document.mozCancelFullScreen)
+      document.mozCancelFullScreen();
+    else if (document.webkitExitFullscreen)
+      document.webkitExitFullscreen();
+    else if (document.msExitFullscreen)
+      document.msExitFullscreen();
+  }
+
+  /* Is currently in full screen or not */
+  function IsFullScreenCurrently() {
+    $('#go-button').hide();
+    return (document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen);
+  }
+
+  $("#go-button").on('click', function () {
+    if (IsFullScreenCurrently())
+      GoOutFullscreen();
+    	else
+    GoInFullscreen($("#element").get(0));
+  });
+
+</script>
