@@ -15,6 +15,7 @@ import javax.persistence.Table;
 public class RPOFCAB {
 
 	private Integer ID_OF_CAB;
+	private Integer ID_OF_CAB_ORIGEM;
 	private String OF_NUM;
 	private String OF_OBS;
 	private String OP_COD;
@@ -42,16 +43,6 @@ public class RPOFCAB {
 	@Column(name = "OF_NUM")
 	public String getOF_NUM() {
 		return OF_NUM;
-	}
-
-	@Column(name = "OF_OBS")
-	public String getOF_OBS() {
-		return OF_OBS;
-	}
-
-	@Column(name = "OP_COD")
-	public String getOP_COD() {
-		return OP_COD;
 	}
 
 	@Column(name = "OP_DES")
@@ -113,7 +104,7 @@ public class RPOFCAB {
 	public String getESTADO() {
 		return ESTADO;
 	}
-	
+
 	@Column(name = "OP_NUM")
 	public String getOP_NUM() {
 		return OP_NUM;
@@ -129,14 +120,6 @@ public class RPOFCAB {
 
 	public void setOF_NUM(String oF_NUM) {
 		OF_NUM = oF_NUM;
-	}
-
-	public void setOF_OBS(String oF_OBS) {
-		OF_OBS = oF_OBS;
-	}
-
-	public void setOP_COD(String oP_COD) {
-		OP_COD = oP_COD;
 	}
 
 	public void setOP_DES(String oP_DES) {
@@ -185,6 +168,33 @@ public class RPOFCAB {
 
 	public void setESTADO(String eSTADO) {
 		ESTADO = eSTADO;
+	}
+
+	@Column(name = "ID_OF_CAB_ORIGEM")
+	public Integer getID_OF_CAB_ORIGEM() {
+		return ID_OF_CAB_ORIGEM;
+	}
+
+	public void setID_OF_CAB_ORIGEM(Integer iD_OF_CAB_ORIGEM) {
+		ID_OF_CAB_ORIGEM = iD_OF_CAB_ORIGEM;
+	}
+
+	@Column(name = "OF_OBS")
+	public String getOF_OBS() {
+		return OF_OBS;
+	}
+
+	@Column(name = "OP_COD")
+	public String getOP_COD() {
+		return OP_COD;
+	}
+
+	public void setOF_OBS(String oF_OBS) {
+		OF_OBS = oF_OBS;
+	}
+
+	public void setOP_COD(String oP_COD) {
+		OP_COD = oP_COD;
 	}
 
 }

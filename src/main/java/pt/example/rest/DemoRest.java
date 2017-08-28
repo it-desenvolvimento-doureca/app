@@ -69,6 +69,17 @@ public class DemoRest {
 	}
 
 	@GET
+	@Path("/allfamNOTIN/{data}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> allfamNOTIN(@PathParam("data") String data)
+			throws SQLException, ClassNotFoundException {
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getallfamNOTIN(data);
+		return dados;
+	}
+
+	@GET
 	@Path("/maquina/{SECNUMENR}")
 	@Produces("application/json")
 	public List<HashMap<String, String>> maquina(@PathParam("SECNUMENR") String SECNUMENR)
@@ -83,7 +94,8 @@ public class DemoRest {
 	@GET
 	@Path("/allmaquina/{SECNUMENR}")
 	@Produces("application/json")
-	public List<HashMap<String, String>> Allmaquina(@PathParam("SECNUMENR") String SECCOD) throws SQLException, ClassNotFoundException {
+	public List<HashMap<String, String>> Allmaquina(@PathParam("SECNUMENR") String SECCOD)
+			throws SQLException, ClassNotFoundException {
 
 		ConnectProgress connectionProgress = new ConnectProgress();
 
@@ -136,7 +148,6 @@ public class DemoRest {
 		return dados;
 	}
 
-	
 	@GET
 	@Path("/referencias/{OFANUMENR}")
 	@Produces("application/json")
@@ -161,16 +172,26 @@ public class DemoRest {
 	}
 	
 	@GET
+	@Path("/getfilhos/{pai}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getfilhos(@PathParam("pai") String pai) throws SQLException, ClassNotFoundException {
+
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getfilhos(pai);
+		return dados;
+	}
+
+	@GET
 	@Path("/defeitos/{fam}")
 	@Produces("application/json")
-	public List<HashMap<String, String>> getDefeitos(@PathParam("fam") String fam) throws SQLException, ClassNotFoundException {
+	public List<HashMap<String, String>> getDefeitos(@PathParam("fam") String fam)
+			throws SQLException, ClassNotFoundException {
 
 		ConnectProgress connectionProgress = new ConnectProgress();
 
 		List<HashMap<String, String>> dados = connectionProgress.getDefeitos(fam);
 		return dados;
 	}
-	
-	
 
 }

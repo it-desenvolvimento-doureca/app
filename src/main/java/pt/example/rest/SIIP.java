@@ -20,6 +20,7 @@ import javax.ws.rs.Produces;
 import pt.example.bootstrap.ConnectProgress;
 import pt.example.dao.RPOFDao;
 import pt.example.dao.RP_CONF_CHEF_SECDao;
+import pt.example.dao.RP_CONF_FAMILIA_COMPDao;
 import pt.example.dao.RP_CONF_OPDao;
 import pt.example.dao.RP_CONF_OP_NPREVDao;
 import pt.example.dao.RP_OF_DEF_LINDao;
@@ -27,10 +28,12 @@ import pt.example.dao.RP_OF_OP_CABDao;
 import pt.example.dao.RP_OF_OP_LINDao;
 import pt.example.dao.RP_OF_PARA_LINDao;
 import pt.example.dao.RP_OF_PREP_LINDao;
+import pt.example.dao.RP_OF_OP_FUNCDao;
 import pt.example.dao.RPCONFUTZPERFDao;
 import pt.example.dao.UserDao;
 import pt.example.entity.RPOFCAB;
 import pt.example.entity.RP_CONF_CHEF_SEC;
+import pt.example.entity.RP_CONF_FAMILIA_COMP;
 import pt.example.entity.RP_CONF_OP;
 import pt.example.entity.RP_CONF_OP_NPREV;
 import pt.example.entity.RP_OF_DEF_LIN;
@@ -38,6 +41,7 @@ import pt.example.entity.RP_OF_OP_CAB;
 import pt.example.entity.RP_OF_OP_LIN;
 import pt.example.entity.RP_OF_PARA_LIN;
 import pt.example.entity.RP_OF_PREP_LIN;
+import pt.example.entity.RP_OF_OP_FUNC;
 import pt.example.entity.RPCONFUTZPERF;
 import pt.example.entity.User;
 
@@ -74,6 +78,12 @@ public class SIIP {
 
 	@Inject
 	private RP_OF_PARA_LINDao dao9;
+
+	@Inject
+	private RP_CONF_FAMILIA_COMPDao dao10;
+
+	@Inject
+	private RP_OF_OP_FUNCDao dao11;
 
 	// RP_CONF_UTZ_PERF***************************************************************
 	@POST
@@ -208,10 +218,10 @@ public class SIIP {
 	// RPOFCAB***********************************************************
 
 	@GET
-	@Path("/user")
+	@Path("/getRP_OF_CAB")
 	@Produces("application/json")
 	public List<RPOFCAB> listof() {
-		return dao.allEntries();
+		return dao.getall();
 	}
 
 	@GET
@@ -266,15 +276,8 @@ public class SIIP {
 	@GET
 	@Path("/getdataof/{id}/{user}")
 	@Produces("application/json")
-	public List<RP_OF_OP_CAB> getdataof(@PathParam("id") Integer id, @PathParam("user") String user) {
-		return dao6.getbyid(id, user);
-	}
-	
-	@GET
-	@Path("/checkuser/{user}")
-	@Produces("application/json")
-	public List<RP_OF_OP_CAB> checkuser( @PathParam("user") String user) {
-		return dao6.checkuser(user);
+	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user) {
+		return dao11.getbyid(id, user);
 	}
 
 	@GET
@@ -283,7 +286,7 @@ public class SIIP {
 	public List<RP_OF_OP_CAB> getdataof(@PathParam("id") Integer id) {
 		return dao6.getid(id);
 	}
-	
+
 	@GET
 	@Path("/getMaxID")
 	@Produces("application/json")
@@ -296,7 +299,7 @@ public class SIIP {
 	@Consumes("*/*")
 	@Produces("application/json")
 	public RP_OF_OP_CAB updateRP_OF_OP_CAB(final RP_OF_OP_CAB RP_OF_OP_CAB) {
-		RP_OF_OP_CAB.setESTADO(RP_OF_OP_CAB.getESTADO());
+		RP_OF_OP_CAB.setID_OF_CAB(RP_OF_OP_CAB.getID_OF_CAB());
 		return dao6.update(RP_OF_OP_CAB);
 	}
 
@@ -370,6 +373,85 @@ public class SIIP {
 	public RP_OF_PREP_LIN updateRP_OF_PREP_LIN(final RP_OF_PREP_LIN RP_OF_PREP_LIN) {
 		RP_OF_PREP_LIN.setESTADO(RP_OF_PREP_LIN.getESTADO());
 		return dao8.update(RP_OF_PREP_LIN);
+	}
+
+	// RP_CONF_FAMILIA_COMP***********************************
+	@GET
+	@Path("/getRP_CONF_FAMILIA_COMP")
+	@Produces("application/json")
+	public List<RP_CONF_FAMILIA_COMP> getRP_CONF_FAMILIA_COMP() {
+		return dao10.allEntries();
+	}
+	
+	@GET
+	@Path("/getRP_CONF_FAMILIA_COMPcodfam/{codfam}")
+	@Produces("application/json")
+	public List<RP_CONF_FAMILIA_COMP> getRP_CONF_FAMILIA_COMPcodfam(@PathParam("codfam") String codfam) {
+		return dao10.getbycodfam(codfam);
+	}
+
+	@POST
+	@Path("/createRP_CONF_FAMILIA_COMP")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_CONF_FAMILIA_COMP insertRP_CONF_FAMILIA_COMP(final RP_CONF_FAMILIA_COMP data) {
+		return dao10.create(data);
+	}
+
+	@PUT
+	@Path("/updateRP_CONF_FAMILIA_COMP")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_CONF_FAMILIA_COMP updateRP_CONF_FAMILIA_COMP(final RP_CONF_FAMILIA_COMP RP_CONF_FAMILIA_COMP) {
+		RP_CONF_FAMILIA_COMP.setCOD_FAMILIA_COMP(RP_CONF_FAMILIA_COMP.getCOD_FAMILIA_COMP());
+		return dao10.update(RP_CONF_FAMILIA_COMP);
+	}
+	
+	@DELETE
+	@Path("/deleteRP_CONF_FAMILIA_COMP/{id}")
+	public void deleteRP_CONF_FAMILIA_COMP(@PathParam("id") String id) {
+		RP_CONF_FAMILIA_COMP RP_CONF_FAMILIA_COMP = new RP_CONF_FAMILIA_COMP();
+		RP_CONF_FAMILIA_COMP.setCOD_FAMILIA_COMP(id);
+		dao10.delete(RP_CONF_FAMILIA_COMP);
+	}
+
+	// RP_OF_OP_FUNC***********************************
+	@GET
+	@Path("/getbyidRP_OF_OP_FUNC")
+	@Produces("application/json")
+	public List<RP_OF_OP_FUNC> getRP_OF_OP_FUNC() {
+		return dao11.allEntries();
+	}
+
+	@POST
+	@Path("/createRP_OF_OP_FUNC")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_FUNC insertRP_OF_OP_FUNC(final RP_OF_OP_FUNC data) {
+		return dao11.create(data);
+	}
+
+	@PUT
+	@Path("/updateRP_OF_OP_FUNC")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_FUNC updateRP_OF_OP_FUNC(final RP_OF_OP_FUNC RP_OF_OP_FUNC) {
+		RP_OF_OP_FUNC.setID_OP_FUNC(RP_OF_OP_FUNC.getID_OP_FUNC());
+		return dao11.update(RP_OF_OP_FUNC);
+	}
+
+	@GET
+	@Path("/checkuser/{user}")
+	@Produces("application/json")
+	public List<RP_OF_OP_FUNC> checkuser(@PathParam("user") String user) {
+		return dao11.checkuser(user);
+	}
+
+	@GET
+	@Path("/getRP_OF_OP_FUNCid/{id}/{user}")
+	@Produces("application/json")
+	public List<RP_OF_OP_FUNC> getRP_OF_OP_FUNCid(@PathParam("id") Integer id, @PathParam("user") String user) {
+		return dao11.getbyallID_OP_CAB(id,user);
 	}
 
 	// RP_OF_PARA_LIN******************************************

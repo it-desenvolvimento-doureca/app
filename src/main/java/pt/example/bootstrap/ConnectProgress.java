@@ -27,7 +27,8 @@ public class ConnectProgress {
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
 			// the openedge url
 			String url = "jdbc:datadirect:openedge://192.168.40.112:20613;DatabaseName=silv-ver;User=SYSPROGRESS;Password=SYSPROGRESS;";
-			//String url = "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
+			// String url =
+			// "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 			// get the openedge database connection
 			globalconnection = DriverManager.getConnection(url);
 
@@ -193,6 +194,37 @@ public class ConnectProgress {
 		return list;
 	}
 
+	public List<HashMap<String, String>> getallfamNOTIN(String data) throws SQLException {
+		String query = "select * from PUB.\"SPAFAM\"";
+		if (!data.equals("null")) {
+			query += " where FAMCOD not in(" + data + ")";
+		}
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("FAMCOD", rs.getString("FAMCOD"));
+				x.put("FAMLIB", rs.getString("FAMLIB"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			globalconnection.close();
+		}
+		return list;
+	}
+
 	public List<HashMap<String, String>> getTipoFalta() throws SQLException {
 
 		String query = "select DISTINCT * from PUB.\"SPAARR\"";
@@ -224,7 +256,10 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getMaq(String SECNUMENR) throws SQLException {
 
-		String query = "select * from PUB.\"SDTSEC\"a inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod where a.SECNUMENR= '"
+		String query = "select * from PUB.\"SDTSEC\" a "
+				+ "inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod "
+				+ "inner join PUB.\"SPASEC\" c on a.seccod = c.seccod "
+				+ "where a.SECNUMENR= '"
 				+ SECNUMENR + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -238,6 +273,7 @@ public class ConnectProgress {
 				HashMap<String, String> x = new HashMap<>();
 				x.put("SECCOD", rs.getString("SECCOD"));
 				x.put("ssecod", rs.getString("ssecod"));
+				x.put("SECLIB", rs.getString("SECLIB"));
 				x.put("SSEDES", rs.getString("SSEDES"));
 				list.add(x);
 			}
@@ -312,6 +348,39 @@ public class ConnectProgress {
 		return list;
 	}
 
+	public List<HashMap<String, String>> getfilhos(String pai) throws SQLException {
+
+		String query = "select * from PUB.\"SDTNCL\" a "
+				+ "inner join PUB.\"SDTPRA\" b on a.PROREFCST = b.PROREF  "
+				+ " where a.PROREFCSE ='" + pai + "'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("PROREF", rs.getString("PROREF"));
+				x.put("PRODES1", rs.getString("PRODES1"));
+				x.put("PROREFCST", rs.getString("PROREFCST"));
+				x.put("PRDFAMCOD", rs.getString("PRDFAMCOD"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			globalconnection.close();
+		}
+		return list;
+	}
+
 	public List<HashMap<String, String>> getDefeitos(String fam) throws SQLException {
 
 		String query = "select * from PUB.\"SPAQUA\" where  LEFT(QUACOD,2)='" + fam + "'";
@@ -343,8 +412,8 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getRef(String OFANUMENR) throws SQLException {
 
-		String query = "select * from PUB.\"SOFB\"a inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  where OFANUMENR= '"
-				+ OFANUMENR + "'";
+		String query = "select * from PUB.\"SOFB\"a " + "inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  "
+				+ "inner join PUB.\"SPAFAM\" c on b.PRDFAMCOD = c.FAMCOD  " + "where a.OFANUMENR= '" + OFANUMENR + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -362,6 +431,7 @@ public class ConnectProgress {
 				x.put("INDREF", rs.getString("INDREF"));
 				x.put("OFBQTEINI", rs.getString("OFBQTEINI"));
 				x.put("INDNUMENR", rs.getString("INDNUMENR"));
+				x.put("FAMCOD", rs.getString("FAMCOD"));
 
 				list.add(x);
 			}
