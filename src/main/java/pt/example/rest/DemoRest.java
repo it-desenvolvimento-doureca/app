@@ -45,6 +45,18 @@ public class DemoRest {
 		List<HashMap<String, String>> dados = connectionProgress.getOP(ofanumenr);
 		return dados;
 	}
+	
+	@GET
+	@Path("/operacaoTop1/{ofanumenr}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> operacaoTop1(@PathParam("ofanumenr") String ofanumenr)
+			throws SQLException, ClassNotFoundException {
+
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getOPtop1(ofanumenr);
+		return dados;
+	}
 
 	@GET
 	@Path("/allop")
@@ -149,6 +161,18 @@ public class DemoRest {
 	}
 
 	@GET
+	@Path("/getEtiqueta/{etiqueta}")
+	@Produces("application/json")
+	public List<HashMap<String, String>> getEtiqueta(@PathParam("etiqueta") String etiqueta)
+			throws SQLException, ClassNotFoundException {
+
+		ConnectProgress connectionProgress = new ConnectProgress();
+
+		List<HashMap<String, String>> dados = connectionProgress.getEtiqueta(etiqueta);
+		return dados;
+	}
+	
+	@GET
 	@Path("/referencias/{OFANUMENR}")
 	@Produces("application/json")
 	public List<HashMap<String, String>> getRef(@PathParam("OFANUMENR") String OFANUMENR)
@@ -159,7 +183,7 @@ public class DemoRest {
 		List<HashMap<String, String>> dados = connectionProgress.getRef(OFANUMENR);
 		return dados;
 	}
-
+	
 	@GET
 	@Path("/familias")
 	@Produces("application/json")

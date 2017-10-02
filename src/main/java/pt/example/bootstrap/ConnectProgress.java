@@ -256,11 +256,8 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getMaq(String SECNUMENR) throws SQLException {
 
-		String query = "select * from PUB.\"SDTSEC\" a "
-				+ "inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod "
-				+ "inner join PUB.\"SPASEC\" c on a.seccod = c.seccod "
-				+ "where a.SECNUMENR= '"
-				+ SECNUMENR + "'";
+		String query = "select * from PUB.\"SDTSEC\" a " + "inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod "
+				+ "inner join PUB.\"SPASEC\" c on a.seccod = c.seccod " + "where a.SECNUMENR= '" + SECNUMENR + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -350,8 +347,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getfilhos(String pai) throws SQLException {
 
-		String query = "select * from PUB.\"SDTNCL\" a "
-				+ "inner join PUB.\"SDTPRA\" b on a.PROREFCST = b.PROREF  "
+		String query = "select * from PUB.\"SDTNCL\" a " + "inner join PUB.\"SDTPRA\" b on a.PROREFCST = b.PROREF  "
 				+ " where a.PROREFCSE ='" + pai + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -413,7 +409,10 @@ public class ConnectProgress {
 	public List<HashMap<String, String>> getRef(String OFANUMENR) throws SQLException {
 
 		String query = "select * from PUB.\"SOFB\"a " + "inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  "
-				+ "inner join PUB.\"SPAFAM\" c on b.PRDFAMCOD = c.FAMCOD  " + "where a.OFANUMENR= '" + OFANUMENR + "'";
+				+ "inner join PUB.\"SPAFAM\" c on b.PRDFAMCOD = c.FAMCOD  "
+				+ "left join (select * from PUB.\"SDTZPA\" f where f.ZPACOD='ALER') d on b.ZPANUM = d.ZPANUM "
+				+ "inner join PUB.\"SPAPRT\" e on b.PROTYPCOD = e.PROTYPCOD " + "where a.OFANUMENR= '" + OFANUMENR
+				+ "'  and e.FABCON = 1";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -432,7 +431,77 @@ public class ConnectProgress {
 				x.put("OFBQTEINI", rs.getString("OFBQTEINI"));
 				x.put("INDNUMENR", rs.getString("INDNUMENR"));
 				x.put("FAMCOD", rs.getString("FAMCOD"));
+				x.put("ZPAVAL", rs.getString("ZPAVAL"));
 
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			globalconnection.close();
+		}
+		return list;
+	}
+	
+	public List<HashMap<String, String>> getOPtop1(String ofanumenr) throws SQLException {
+
+		String query = "select top 1 * from PUB.\"SOFD\" a where ofanumenr= '" + ofanumenr + "' order by a.OPENUM desc";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("OPECOD", rs.getString("OPECOD"));
+				x.put("OPENUM", rs.getString("OPENUM"));
+				x.put("OPEDES", rs.getString("OPEDES"));
+				x.put("SECNUMENR1", rs.getString("SECNUMENR1"));
+				list.add(x);
+			}
+			stmt.close();
+			rs.close();
+			connection.close();
+			globalconnection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			globalconnection.close();
+		}
+		return list;
+	}
+
+	public List<HashMap<String, String>> getEtiqueta(String etiqueta) throws SQLException {
+
+		String query = "select  * from PUB.\"SETQDE\" a "
+				+ "inner join PUB.\"SOFA\" b on b.ofnum = left(a.etqoridoc1,10) "
+				+ "inner join PUB.\"SOFB\" c on b.OFANUMENR = c.OFANUMENR " + "where a.etqnum = '" + etiqueta + "'";
+
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
+		/// System.out.println(query);
+		// Usa sempre assim que fecha os resources automaticamente
+		try (Connection connection = getConnection();
+				Statement stmt = connection.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+			while (rs.next()) {
+				// parser das operações
+				HashMap<String, String> x = new HashMap<>();
+				x.put("OFNUM", rs.getString("OFNUM"));
+				x.put("ofanumenr", rs.getString("ofanumenr"));
+				x.put("ofref", rs.getString("ofref"));
+				x.put("OFBQTEINI", rs.getString("OFBQTEINI"));
+				x.put("INDNUMENR", rs.getString("INDNUMENR"));
+				x.put("VA1REF", rs.getString("VA1REF"));
+				x.put("VA2REF", rs.getString("VA2REF"));
+				x.put("INDREF", rs.getString("INDREF"));
 				list.add(x);
 			}
 			stmt.close();

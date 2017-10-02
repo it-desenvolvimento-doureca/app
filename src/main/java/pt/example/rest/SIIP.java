@@ -18,6 +18,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import pt.example.bootstrap.ConnectProgress;
+import pt.example.dao.RPCONFUTZPERFDao;
 import pt.example.dao.RPOFDao;
 import pt.example.dao.RP_CONF_CHEF_SECDao;
 import pt.example.dao.RP_CONF_FAMILIA_COMPDao;
@@ -26,12 +27,12 @@ import pt.example.dao.RP_CONF_OP_NPREVDao;
 import pt.example.dao.RP_OF_DEF_LINDao;
 import pt.example.dao.RP_OF_OP_CABDao;
 import pt.example.dao.RP_OF_OP_LINDao;
+import pt.example.dao.RP_OF_OUTRODEF_LINDao;
 import pt.example.dao.RP_OF_PARA_LINDao;
 import pt.example.dao.RP_OF_PREP_LINDao;
 import pt.example.dao.RP_OF_OP_FUNCDao;
-import pt.example.dao.RPCONFUTZPERFDao;
 import pt.example.dao.UserDao;
-import pt.example.entity.RPOFCAB;
+import pt.example.entity.RP_OF_CAB;
 import pt.example.entity.RP_CONF_CHEF_SEC;
 import pt.example.entity.RP_CONF_FAMILIA_COMP;
 import pt.example.entity.RP_CONF_OP;
@@ -39,10 +40,11 @@ import pt.example.entity.RP_CONF_OP_NPREV;
 import pt.example.entity.RP_OF_DEF_LIN;
 import pt.example.entity.RP_OF_OP_CAB;
 import pt.example.entity.RP_OF_OP_LIN;
+import pt.example.entity.RP_OF_OUTRODEF_LIN;
 import pt.example.entity.RP_OF_PARA_LIN;
 import pt.example.entity.RP_OF_PREP_LIN;
 import pt.example.entity.RP_OF_OP_FUNC;
-import pt.example.entity.RPCONFUTZPERF;
+import pt.example.entity.RP_CONF_UTZ_PERF;
 import pt.example.entity.User;
 
 @Stateless
@@ -85,35 +87,38 @@ public class SIIP {
 	@Inject
 	private RP_OF_OP_FUNCDao dao11;
 
+	@Inject
+	private RP_OF_OUTRODEF_LINDao dao12;
+
 	// RP_CONF_UTZ_PERF***************************************************************
 	@POST
-	@Path("/createRPCONFUTZPERF")
+	@Path("/createRP_CONF_UTZ_PERF")
 	@Consumes("*/*")
 	@Produces("application/json")
-	public RPCONFUTZPERF insertRPCONFUTZPERF(final RPCONFUTZPERF data) {
+	public RP_CONF_UTZ_PERF insertRP_CONF_UTZ_PERF(final RP_CONF_UTZ_PERF data) {
 		return dao1.create(data);
 	}
 
 	@GET
-	@Path("/getRPCONFUTZPERF")
+	@Path("/getRP_CONF_UTZ_PERF")
 	@Produces("application/json")
-	public List<RPCONFUTZPERF> getRPCONFUTZPERF() {
+	public List<RP_CONF_UTZ_PERF> getRP_CONF_UTZ_PERF() {
 		return dao1.allEntries();
 	}
 
 	@GET
-	@Path("/getRPCONFUTZPERFid/{id}")
+	@Path("/getRP_CONF_UTZ_PERFid/{id}")
 	@Produces("application/json")
-	public List<RPCONFUTZPERF> getRPCONFUTZPERF_id(@PathParam("id") String id) {
+	public List<RP_CONF_UTZ_PERF> getRP_CONF_UTZ_PERF_id(@PathParam("id") String id) {
 		return dao1.getbyid(id);
 	}
 
 	@DELETE
-	@Path("/deleteRPCONFUTZPERF/{id}")
-	public void deleteRPCONFUTZPERF(@PathParam("id") Integer id) {
-		RPCONFUTZPERF RPCONFUTZPERF = new RPCONFUTZPERF();
-		RPCONFUTZPERF.setID_CONF_UTZ_PERF(id);
-		dao1.delete(RPCONFUTZPERF);
+	@Path("/deleteRP_CONF_UTZ_PERF/{id}")
+	public void deleteRP_CONF_UTZ_PERF(@PathParam("id") Integer id) {
+		RP_CONF_UTZ_PERF RP_CONF_UTZ_PERF = new RP_CONF_UTZ_PERF();
+		RP_CONF_UTZ_PERF.setID_CONF_UTZ_PERF(id);
+		dao1.delete(RP_CONF_UTZ_PERF);
 	}
 
 	// RP_CONF_CHEF_SEC***************************************************************
@@ -215,33 +220,33 @@ public class SIIP {
 		dao4.delete(RP_CONF_OP_NPREV);
 	}
 
-	// RPOFCAB***********************************************************
+	// RP_OF_CAB***********************************************************
 
 	@GET
 	@Path("/getRP_OF_CAB")
 	@Produces("application/json")
-	public List<RPOFCAB> listof() {
+	public List<RP_OF_CAB> listof() {
 		return dao.getall();
 	}
 
 	@GET
 	@Path("/listofcurrentof/{id}")
 	@Produces("application/json")
-	public List<RPOFCAB> listofcurrentof(@PathParam("id") String id) {
+	public List<RP_OF_CAB> listofcurrentof(@PathParam("id") String id) {
 		return dao.getbyid(id);
 	}
 
 	@GET
 	@Path("/getof/{id}")
 	@Produces("application/json")
-	public List<RPOFCAB> getof(@PathParam("id") Integer id) {
+	public List<RP_OF_CAB> getof(@PathParam("id") Integer id) {
 		return dao.getof(id);
 	}
 
 	@GET
 	@Path("/verifica/{of_num}/{op_cod}/{op_num}")
 	@Produces("application/json")
-	public List<RPOFCAB> verifica(@PathParam("of_num") String of_num, @PathParam("op_cod") String op_cod,
+	public List<RP_OF_CAB> verifica(@PathParam("of_num") String of_num, @PathParam("op_cod") String op_cod,
 			@PathParam("op_num") String op_num) {
 		return dao.verifica(of_num, op_cod, op_num);
 	}
@@ -250,7 +255,7 @@ public class SIIP {
 	@Path("/createRP_OF_CAB")
 	@Consumes("*/*")
 	@Produces("application/json")
-	public RPOFCAB insertRPOFCAB(final RPOFCAB data) {
+	public RP_OF_CAB insertRP_OF_CAB(final RP_OF_CAB data) {
 		return dao.create(data);
 	}
 
@@ -258,9 +263,9 @@ public class SIIP {
 	@Path("/updateRP_OF_CAB")
 	@Consumes("*/*")
 	@Produces("application/json")
-	public RPOFCAB updateRP_OF_CAB(final RPOFCAB RPOFCAB) {
-		RPOFCAB.setESTADO(RPOFCAB.getESTADO());
-		return dao.update(RPOFCAB);
+	public RP_OF_CAB updateRP_OF_CAB(final RP_OF_CAB RP_OF_CAB) {
+		RP_OF_CAB.setESTADO(RP_OF_CAB.getESTADO());
+		return dao.update(RP_OF_CAB);
 	}
 
 	// RP_OF_OP_CAB*************************************************************
@@ -274,10 +279,10 @@ public class SIIP {
 	}
 
 	@GET
-	@Path("/getdataof/{id}/{user}")
+	@Path("/getdataof/{id}/{user}/{estado}")
 	@Produces("application/json")
-	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user) {
-		return dao11.getbyid(id, user);
+	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user, @PathParam("estado") String estado) {
+		return dao11.getbyid(id, user,estado);
 	}
 
 	@GET
@@ -382,7 +387,7 @@ public class SIIP {
 	public List<RP_CONF_FAMILIA_COMP> getRP_CONF_FAMILIA_COMP() {
 		return dao10.allEntries();
 	}
-	
+
 	@GET
 	@Path("/getRP_CONF_FAMILIA_COMPcodfam/{codfam}")
 	@Produces("application/json")
@@ -406,7 +411,7 @@ public class SIIP {
 		RP_CONF_FAMILIA_COMP.setCOD_FAMILIA_COMP(RP_CONF_FAMILIA_COMP.getCOD_FAMILIA_COMP());
 		return dao10.update(RP_CONF_FAMILIA_COMP);
 	}
-	
+
 	@DELETE
 	@Path("/deleteRP_CONF_FAMILIA_COMP/{id}")
 	public void deleteRP_CONF_FAMILIA_COMP(@PathParam("id") String id) {
@@ -451,7 +456,14 @@ public class SIIP {
 	@Path("/getRP_OF_OP_FUNCid/{id}/{user}")
 	@Produces("application/json")
 	public List<RP_OF_OP_FUNC> getRP_OF_OP_FUNCid(@PathParam("id") Integer id, @PathParam("user") String user) {
-		return dao11.getbyallID_OP_CAB(id,user);
+		return dao11.getbyallID_OP_CAB(id, user);
+	}
+	
+	@GET
+	@Path("/getRP_OF_OP_FUNCusers/{id}")
+	@Produces("application/json")
+	public List<RP_OF_OP_FUNC> getRP_OF_OP_FUNC_users(@PathParam("id") Integer id) {
+		return dao11.getUsers(id);
 	}
 
 	// RP_OF_PARA_LIN******************************************
@@ -525,6 +537,32 @@ public class SIIP {
 	public RP_OF_DEF_LIN updateRP_OF_DEF_LIN(final RP_OF_DEF_LIN RP_OF_DEF_LIN) {
 		RP_OF_DEF_LIN.setQUANT_DEF(RP_OF_DEF_LIN.getQUANT_DEF());
 		return dao5.update(RP_OF_DEF_LIN);
+	}
+	// RP_OF_OUTRODEF_LIN****************************************************
+
+	@POST
+	@Path("/createRP_OF_OUTRODEF_LIN")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OUTRODEF_LIN insertRP_OF_OUTRODEF_LIN(final RP_OF_OUTRODEF_LIN data) {
+		return dao12.create(data);
+	}
+
+
+	@GET
+	@Path("/getbyidRP_OF_OUTRODEF_LINF/{id}")
+	@Produces("application/json")
+	public List<RP_OF_OUTRODEF_LIN> getbyidRP_OF_OUTRODEF_LIN(@PathParam("id") Integer id) {
+		return dao12.getbyid(id);
+	}
+
+	@PUT
+	@Path("/updateRP_OF_OUTRODEF_LIN")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OUTRODEF_LIN updateRP_OF_OUTRODEF_LIN(final RP_OF_OUTRODEF_LIN RP_OF_OUTRODEF_LIN) {
+		RP_OF_OUTRODEF_LIN.setQUANT_OUTRODEF(RP_OF_OUTRODEF_LIN.getQUANT_OUTRODEF());
+		return dao12.update(RP_OF_OUTRODEF_LIN);
 	}
 
 	// CRIAR

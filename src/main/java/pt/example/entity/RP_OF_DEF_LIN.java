@@ -19,12 +19,12 @@ public class RP_OF_DEF_LIN {
 	private Integer ID_OP_LIN;
 	private String ID_UTZ_CRIA;
 	private String ID_UTZ_MODIF;
+	private String OBS_DEF;
 	private String COD_DEF;
 	private String DESC_DEF;
 	private Integer QUANT_DEF;
 	private Timestamp DATA_HORA_REG;
-	private Float PERC_OBJETIV;
-	private Float PERC_DEF;
+	
 
 	@Id
 	@Column(name = "ID_DEF_LIN")
@@ -68,14 +68,15 @@ public class RP_OF_DEF_LIN {
 		return DATA_HORA_REG;
 	}
 
-	@Column(name = "PERC_OBJETIV")
-	public Float getPERC_OBJETIV() {
-		return PERC_OBJETIV;
+	
+
+	@Column(name = "OBS_DEF")
+	public String getOBS_DEF() {
+		return OBS_DEF;
 	}
 
-	@Column(name = "PERC_DEF")
-	public Float getPERC_DEF() {
-		return PERC_DEF;
+	public void setOBS_DEF(String oBS_DEF) {
+		OBS_DEF = oBS_DEF;
 	}
 
 	public void setID_DEF_LIN(Integer iD_DEF_LIN) {
@@ -110,11 +111,5 @@ public class RP_OF_DEF_LIN {
 		DATA_HORA_REG = dATA_HORA_REG;
 	}
 
-	public void setPERC_OBJETIV(Float pERC_OBJETIV) {
-		PERC_OBJETIV = pERC_OBJETIV;
-	}
-
-	public void setPERC_DEF(Float pERC_DEF) {
-		PERC_DEF = pERC_DEF;
-	}
+	
 }

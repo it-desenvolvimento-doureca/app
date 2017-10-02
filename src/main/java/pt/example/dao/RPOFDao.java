@@ -3,51 +3,50 @@ package pt.example.dao;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.ws.rs.PathParam;
 
-import pt.example.entity.RPCONFUTZPERF;
-import pt.example.entity.RPOFCAB;
+import pt.example.entity.RP_OF_CAB;
 
-public class RPOFDao extends GenericDaoJpaImpl<RPOFCAB, Integer> implements GenericDao<RPOFCAB, Integer> {
+public class RPOFDao extends GenericDaoJpaImpl<RP_OF_CAB, Integer> implements GenericDao<RP_OF_CAB, Integer> {
 	public RPOFDao() {
-		super(RPOFCAB.class);
+		super(RP_OF_CAB.class);
 	}
 
-	public List<RPOFCAB> getall() {
+	public List<RP_OF_CAB> getall() {
 
-		Query query = entityManager.createQuery("Select a,b from RPOFCAB a, RP_OF_OP_CAB b where a.ID_OF_CAB = b.ID_OF_CAB ");
-		List<RPOFCAB> utz = query.getResultList();
+		Query query = entityManager.createQuery("Select a,b,c from RP_OF_CAB a, RP_OF_OP_CAB b,RP_OF_OP_FUNC c "
+				+ "where c.ID_OP_CAB=b.ID_OP_CAB and a.ID_OF_CAB = b.ID_OF_CAB order by c.DATA_INI desc, c.HORA_INI desc ");
+		List<RP_OF_CAB> utz = query.getResultList();
 		return utz;
 
 	}
 
-	public List<RPOFCAB> getbyid(String id_utz) {
+	public List<RP_OF_CAB> getbyid(String id_utz) {
 
 		Query query = entityManager
-				.createQuery("Select a from RPOFCAB a where a.ID_UTZ_CRIA = :id and a.ESTADO NOT IN ('C','A','M')");
+				.createQuery("Select a from RP_OF_CAB a where a.ID_UTZ_CRIA = :id and a.ESTADO NOT IN ('C','A','M')");
 		query.setParameter("id", id_utz);
-		List<RPOFCAB> utz = query.getResultList();
+		List<RP_OF_CAB> utz = query.getResultList();
 		return utz;
 
 	}
 
-	public List<RPOFCAB> getof(Integer id) {
+	public List<RP_OF_CAB> getof(Integer id) {
 
-		Query query = entityManager.createQuery("Select a from RPOFCAB a where a.ID_OF_CAB = :id");
+		Query query = entityManager.createQuery("Select a from RP_OF_CAB a where a.ID_OF_CAB = :id");
 		query.setParameter("id", id);
-		List<RPOFCAB> utz = query.getResultList();
+		List<RP_OF_CAB> utz = query.getResultList();
 		return utz;
 
 	}
 
-	public List<RPOFCAB> verifica(String of_num, String op_cod, String op_num) {
+	public List<RP_OF_CAB> verifica(String of_num, String op_cod, String op_num) {
 
 		Query query = entityManager.createQuery(
-				"Select a from RPOFCAB a where a.OF_NUM = :of_num and a.OP_NUM = :op_num and a.OP_COD = :op_cod and a.ESTADO NOT IN ('C','A','M')");
+				"Select a from RP_OF_CAB a where a.OF_NUM = :of_num and a.OP_NUM = :op_num and a.OP_COD = :op_cod and a.ESTADO NOT IN ('C','A','M')");
 		query.setParameter("of_num", of_num);
 		query.setParameter("op_cod", op_cod);
 		query.setParameter("op_num", op_num);
-		List<RPOFCAB> utz = query.getResultList();
+		List<RP_OF_CAB> utz = query.getResultList();
 		return utz;
 
 	}

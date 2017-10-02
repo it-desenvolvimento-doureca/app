@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "RP_CONF_UTZ_PERF")
-public class RPCONFUTZPERF {
+public class RP_CONF_UTZ_PERF {
 
 	private Integer ID_CONF_UTZ_PERF;
 	private String ID_UTZ;

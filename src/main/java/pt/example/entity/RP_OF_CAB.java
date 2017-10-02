@@ -12,13 +12,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "RP_OF_CAB")
-public class RPOFCAB {
+public class RP_OF_CAB {
 
 	private Integer ID_OF_CAB;
 	private Integer ID_OF_CAB_ORIGEM;
 	private String OF_NUM;
 	private String OF_OBS;
 	private String OP_COD;
+	private String OP_COD_ORIGEM;
 	private String OP_NUM;
 	private String OP_DES;
 	private String SEC_NUM;
@@ -108,6 +109,14 @@ public class RPOFCAB {
 	@Column(name = "OP_NUM")
 	public String getOP_NUM() {
 		return OP_NUM;
+	}
+	@Column(name = "OP_COD_ORIGEM")
+	public String getOP_COD_ORIGEM() {
+		return OP_COD_ORIGEM;
+	}
+
+	public void setOP_COD_ORIGEM(String oP_COD_ORIGEM) {
+		OP_COD_ORIGEM = oP_COD_ORIGEM;
 	}
 
 	public void setOP_NUM(String oP_NUM) {

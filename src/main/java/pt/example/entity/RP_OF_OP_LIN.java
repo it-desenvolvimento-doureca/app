@@ -22,6 +22,8 @@ public class RP_OF_OP_LIN {
 	private Integer QUANT_OF;
 	private Integer QUANT_BOAS_TOTAL;
 	private Integer QUANT_DEF_TOTAL;
+	private Float PERC_OBJETIV;
+	private Float PERC_DEF;
 
 	@Id
 	@Column(name = "ID_OP_LIN")
@@ -80,6 +82,16 @@ public class RP_OF_OP_LIN {
 		return QUANT_DEF_TOTAL;
 	}
 
+	@Column(name = "PERC_OBJETIV")
+	public Float getPERC_OBJETIV() {
+		return PERC_OBJETIV;
+	}
+
+	@Column(name = "PERC_DEF")
+	public Float getPERC_DEF() {
+		return PERC_DEF;
+	}
+
 	public void setID_OP_LIN(Integer iD_OP_LIN) {
 		ID_OP_LIN = iD_OP_LIN;
 	}
@@ -122,6 +134,14 @@ public class RP_OF_OP_LIN {
 
 	public void setQUANT_DEF_TOTAL(Integer qUANT_DEF_TOTAL) {
 		QUANT_DEF_TOTAL = qUANT_DEF_TOTAL;
+	}
+	
+	public void setPERC_OBJETIV(Float pERC_OBJETIV) {
+		PERC_OBJETIV = pERC_OBJETIV;
+	}
+
+	public void setPERC_DEF(Float pERC_DEF) {
+		PERC_DEF = pERC_DEF;
 	}
 
 }
