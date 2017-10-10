@@ -20,5 +20,14 @@ public class RP_CONF_OPDao extends GenericDaoJpaImpl<RP_CONF_OP,Integer> impleme
 		return utz;
 
 	}
+	
+	
+	public List<RP_CONF_OP> getall(){
+
+		Query query = entityManager.createQuery("Select a from RP_CONF_OP a order by a.ID_OP_PRINC");
+		List<RP_CONF_OP> utz = query.getResultList();
+		return utz;
+
+	}
 
 }

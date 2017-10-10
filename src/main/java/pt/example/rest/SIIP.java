@@ -160,7 +160,7 @@ public class SIIP {
 	@Path("/getRP_CONF_OP")
 	@Produces("application/json")
 	public List<RP_CONF_OP> getRP_CONF_OP() {
-		return dao3.allEntries();
+		return dao3.getall();
 	}
 
 	@POST
@@ -227,6 +227,13 @@ public class SIIP {
 	@Produces("application/json")
 	public List<RP_OF_CAB> listof() {
 		return dao.getall();
+	}
+	
+	@GET
+	@Path("/getRP_OF_CABbyid/{id}")
+	@Produces("application/json")
+	public List<RP_OF_CAB> listofbyid(@PathParam("id") Integer id) {
+		return dao.getallbyid(id);
 	}
 
 	@GET
@@ -537,6 +544,13 @@ public class SIIP {
 	public RP_OF_DEF_LIN updateRP_OF_DEF_LIN(final RP_OF_DEF_LIN RP_OF_DEF_LIN) {
 		RP_OF_DEF_LIN.setQUANT_DEF(RP_OF_DEF_LIN.getQUANT_DEF());
 		return dao5.update(RP_OF_DEF_LIN);
+	}
+	
+	
+	@DELETE
+	@Path("/deleteRP_OF_DEF_LIN/{id}")
+	public void deleteRP_OF_DEF_LIN(@PathParam("id") Integer id) {
+		dao5.apagar_id_op_lin(id);
 	}
 	// RP_OF_OUTRODEF_LIN****************************************************
 

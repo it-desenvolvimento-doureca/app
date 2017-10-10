@@ -26,7 +26,7 @@ public class ConnectProgress {
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
 			// the openedge url
-			String url = "jdbc:datadirect:openedge://192.168.40.112:20613;DatabaseName=silv-ver;User=SYSPROGRESS;Password=SYSPROGRESS;";
+			String url = "jdbc:datadirect:openedge://192.168.40.112:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 			// String url =
 			// "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 			// get the openedge database connection
@@ -361,6 +361,7 @@ public class ConnectProgress {
 				HashMap<String, String> x = new HashMap<>();
 				x.put("PROREF", rs.getString("PROREF"));
 				x.put("PRODES1", rs.getString("PRODES1"));
+				x.put("PRODES2", rs.getString("PRODES2"));
 				x.put("PROREFCST", rs.getString("PROREFCST"));
 				x.put("PRDFAMCOD", rs.getString("PRDFAMCOD"));
 				list.add(x);
@@ -425,6 +426,7 @@ public class ConnectProgress {
 				HashMap<String, String> x = new HashMap<>();
 				x.put("PROREF", rs.getString("PROREF"));
 				x.put("PRODES1", rs.getString("PRODES1"));
+				x.put("PRODES2", rs.getString("PRODES2"));
 				x.put("VA1REF", rs.getString("VA1REF"));
 				x.put("VA2REF", rs.getString("VA2REF"));
 				x.put("INDREF", rs.getString("INDREF"));
@@ -432,6 +434,7 @@ public class ConnectProgress {
 				x.put("INDNUMENR", rs.getString("INDNUMENR"));
 				x.put("FAMCOD", rs.getString("FAMCOD"));
 				x.put("ZPAVAL", rs.getString("ZPAVAL"));
+				x.put("PRDFAMCOD", rs.getString("PRDFAMCOD"));
 
 				list.add(x);
 			}
@@ -449,7 +452,7 @@ public class ConnectProgress {
 	
 	public List<HashMap<String, String>> getOPtop1(String ofanumenr) throws SQLException {
 
-		String query = "select top 1 * from PUB.\"SOFD\" a where ofanumenr= '" + ofanumenr + "' order by a.OPENUM desc";
+		String query = "select top 1 * from PUB.\"SOFD\" a where ofanumenr= '" + ofanumenr + "' and OPECOD != '' order by a.OPENUM desc";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -480,7 +483,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getEtiqueta(String etiqueta) throws SQLException {
 
-		String query = "select  * from PUB.\"SETQDE\" a "
+		String query = "select OFNUM, b.ofanumenr,ofref,OFBQTEINI,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
 				+ "inner join PUB.\"SOFA\" b on b.ofnum = left(a.etqoridoc1,10) "
 				+ "inner join PUB.\"SOFB\" c on b.OFANUMENR = c.OFANUMENR " + "where a.etqnum = '" + etiqueta + "'";
 

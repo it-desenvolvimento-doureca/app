@@ -6085,7 +6085,7 @@ var SystemJsNgModuleLoader = (function () {
         if (exportName === undefined) {
             exportName = 'default';
         }
-        return __webpack_require__(213)(module)
+        return __webpack_require__(212)(module)
             .then(function (module) { return module[exportName]; })
             .then(function (type) { return checkNotEmpty(type, module, exportName); })
             .then(function (type) { return _this._compiler.compileModuleAsync(type); });
@@ -6101,7 +6101,7 @@ var SystemJsNgModuleLoader = (function () {
             exportName = 'default';
             factoryClassSuffix = '';
         }
-        return __webpack_require__(213)(this._config.factoryPathPrefix + module + this._config.factoryPathSuffix)
+        return __webpack_require__(212)(this._config.factoryPathPrefix + module + this._config.factoryPathSuffix)
             .then(function (module) { return module[exportName + factoryClassSuffix]; })
             .then(function (factory) { return checkNotEmpty(factory, module, exportName); });
     };
@@ -14357,7 +14357,7 @@ function transition$$1(stateChangeExpr, steps) {
 
 //# sourceMappingURL=core.es5.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(98)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(99)))
 
 /***/ }),
 /* 1 */
@@ -19190,7 +19190,7 @@ exports.SharedModule = SharedModule;
 
 var root_1 = __webpack_require__(46);
 var toSubscriber_1 = __webpack_require__(498);
-var observable_1 = __webpack_require__(137);
+var observable_1 = __webpack_require__(136);
 /**
  * A representation of any set of values over any amount of time. This the most basic building block
  * of RxJS.
@@ -19340,9 +19340,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_observable_forkJoin__ = __webpack_require__(481);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_observable_forkJoin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_forkJoin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_fromPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractControlDirective", function() { return AbstractControlDirective; });
@@ -25434,25 +25434,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_operator_every___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_operator_every__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operator_first__ = __webpack_require__(489);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operator_first__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_operator_map__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_operator_map__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_operator_mergeMap__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_operator_mergeMap__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_operator_mergeMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_operator_mergeMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_operator_reduce__ = __webpack_require__(494);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_operator_reduce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_operator_reduce__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_Observable__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_operator_catch__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_operator_catch__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_rxjs_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_operator_concatAll__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_operator_concatAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_rxjs_operator_concatAll__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_rxjs_util_EmptyError__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_rxjs_util_EmptyError__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_rxjs_util_EmptyError___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_rxjs_util_EmptyError__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_rxjs_observable_fromPromise__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_rxjs_observable_fromPromise__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_rxjs_observable_fromPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_rxjs_observable_fromPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_rxjs_operator_last__ = __webpack_require__(490);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_rxjs_operator_last___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_rxjs_operator_last__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_rxjs_operator_mergeAll__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_rxjs_operator_filter__ = __webpack_require__(488);
@@ -33968,10 +33968,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isFunction_1 = __webpack_require__(205);
-var Subscription_1 = __webpack_require__(96);
-var Observer_1 = __webpack_require__(194);
-var rxSubscriber_1 = __webpack_require__(138);
+var isFunction_1 = __webpack_require__(204);
+var Subscription_1 = __webpack_require__(97);
+var Observer_1 = __webpack_require__(193);
+var rxSubscriber_1 = __webpack_require__(137);
 /**
  * Implements the {@link Observer} interface and extends the
  * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -38837,6 +38837,64 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["Version"]('4.1.2'
 /***/ }),
 /* 31 */,
 /* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(0);
+var Subject_1 = __webpack_require__(64);
+var domhandler_1 = __webpack_require__(3);
+exports.DomHandler = domhandler_1.DomHandler;
+var ConfirmationService = (function () {
+    function ConfirmationService() {
+        this.requireConfirmationSource = new Subject_1.Subject();
+        this.acceptConfirmationSource = new Subject_1.Subject();
+        this.requireConfirmation$ = this.requireConfirmationSource.asObservable();
+        this.accept = this.acceptConfirmationSource.asObservable();
+    }
+    ConfirmationService.prototype.confirm = function (confirmation) {
+        this.requireConfirmationSource.next(confirmation);
+        return this;
+    };
+    ConfirmationService.prototype.onAccept = function () {
+        this.acceptConfirmationSource.next();
+    };
+    return ConfirmationService;
+}());
+ConfirmationService = __decorate([
+    core_1.Injectable()
+], ConfirmationService);
+exports.ConfirmationService = ConfirmationService;
+var TreeDragDropService = (function () {
+    function TreeDragDropService() {
+        this.dragStartSource = new Subject_1.Subject();
+        this.dragStopSource = new Subject_1.Subject();
+        this.dragStart$ = this.dragStartSource.asObservable();
+        this.dragStop$ = this.dragStopSource.asObservable();
+    }
+    TreeDragDropService.prototype.startDrag = function (event) {
+        this.dragStartSource.next(event);
+    };
+    TreeDragDropService.prototype.stopDrag = function (event) {
+        this.dragStopSource.next(event);
+    };
+    return TreeDragDropService;
+}());
+TreeDragDropService = __decorate([
+    core_1.Injectable()
+], TreeDragDropService);
+exports.TreeDragDropService = TreeDragDropService;
+//# sourceMappingURL=api.js.map
+
+/***/ }),
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39707,7 +39765,6 @@ var AnimationGroupPlayer = (function () {
 
 
 /***/ }),
-/* 33 */,
 /* 34 */,
 /* 35 */,
 /* 36 */,
@@ -39718,64 +39775,7 @@ var AnimationGroupPlayer = (function () {
 /* 41 */,
 /* 42 */,
 /* 43 */,
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(0);
-var Subject_1 = __webpack_require__(64);
-var domhandler_1 = __webpack_require__(3);
-exports.DomHandler = domhandler_1.DomHandler;
-var ConfirmationService = (function () {
-    function ConfirmationService() {
-        this.requireConfirmationSource = new Subject_1.Subject();
-        this.acceptConfirmationSource = new Subject_1.Subject();
-        this.requireConfirmation$ = this.requireConfirmationSource.asObservable();
-        this.accept = this.acceptConfirmationSource.asObservable();
-    }
-    ConfirmationService.prototype.confirm = function (confirmation) {
-        this.requireConfirmationSource.next(confirmation);
-        return this;
-    };
-    ConfirmationService.prototype.onAccept = function () {
-        this.acceptConfirmationSource.next();
-    };
-    return ConfirmationService;
-}());
-ConfirmationService = __decorate([
-    core_1.Injectable()
-], ConfirmationService);
-exports.ConfirmationService = ConfirmationService;
-var TreeDragDropService = (function () {
-    function TreeDragDropService() {
-        this.dragStartSource = new Subject_1.Subject();
-        this.dragStopSource = new Subject_1.Subject();
-        this.dragStart$ = this.dragStartSource.asObservable();
-        this.dragStop$ = this.dragStopSource.asObservable();
-    }
-    TreeDragDropService.prototype.startDrag = function (event) {
-        this.dragStartSource.next(event);
-    };
-    TreeDragDropService.prototype.stopDrag = function (event) {
-        this.dragStopSource.next(event);
-    };
-    return TreeDragDropService;
-}());
-TreeDragDropService = __decorate([
-    core_1.Injectable()
-], TreeDragDropService);
-exports.TreeDragDropService = TreeDragDropService;
-//# sourceMappingURL=api.js.map
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39792,7 +39792,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var domhandler_1 = __webpack_require__(3);
 var shared_1 = __webpack_require__(4);
@@ -40191,7 +40191,7 @@ exports.root = _root;
     }
 })();
 //# sourceMappingURL=root.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(98)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(99)))
 
 /***/ }),
 /* 47 */,
@@ -40216,6 +40216,294 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(0);
+var animations_1 = __webpack_require__(33);
+var common_1 = __webpack_require__(1);
+var domhandler_1 = __webpack_require__(3);
+var shared_1 = __webpack_require__(4);
+var button_1 = __webpack_require__(12);
+var api_1 = __webpack_require__(32);
+var ConfirmDialog = (function () {
+    function ConfirmDialog(el, domHandler, renderer, confirmationService) {
+        var _this = this;
+        this.el = el;
+        this.domHandler = domHandler;
+        this.renderer = renderer;
+        this.confirmationService = confirmationService;
+        this.acceptIcon = 'fa-check';
+        this.acceptLabel = 'Sim';
+        this.acceptVisible = true;
+        this.rejectIcon = 'fa-close';
+        this.rejectLabel = 'Não';
+        this.rejectVisible = true;
+        this.closeOnEscape = true;
+        this.closable = true;
+        this.responsive = true;
+        this.subscription = confirmationService.requireConfirmation$.subscribe(function (confirmation) {
+            if (confirmation.key === _this.key) {
+                _this.confirmation = confirmation;
+                _this.message = _this.confirmation.message || _this.message;
+                _this.icon = _this.confirmation.icon || _this.icon;
+                _this.header = _this.confirmation.header || _this.header;
+                _this.rejectVisible = _this.confirmation.rejectVisible == null ? _this.rejectVisible : _this.confirmation.rejectVisible;
+                _this.acceptVisible = _this.confirmation.acceptVisible == null ? _this.acceptVisible : _this.confirmation.acceptVisible;
+                if (_this.confirmation.accept) {
+                    _this.confirmation.acceptEvent = new core_1.EventEmitter();
+                    _this.confirmation.acceptEvent.subscribe(_this.confirmation.accept);
+                }
+                if (_this.confirmation.reject) {
+                    _this.confirmation.rejectEvent = new core_1.EventEmitter();
+                    _this.confirmation.rejectEvent.subscribe(_this.confirmation.reject);
+                }
+                _this.visible = true;
+            }
+        });
+    }
+    Object.defineProperty(ConfirmDialog.prototype, "visible", {
+        get: function () {
+            return this._visible;
+        },
+        set: function (val) {
+            this._visible = val;
+            if (this._visible) {
+                if (!this.positionInitialized) {
+                    this.center();
+                    this.positionInitialized = true;
+                }
+                this.el.nativeElement.children[0].style.zIndex = ++domhandler_1.DomHandler.zindex;
+            }
+            if (this._visible)
+                this.enableModality();
+            else
+                this.disableModality();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ConfirmDialog.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.contentContainer = this.domHandler.findSingle(this.el.nativeElement, '.ui-dialog-content');
+        if (this.responsive) {
+            this.documentResponsiveListener = this.renderer.listenGlobal('window', 'resize', function (event) {
+                _this.center();
+            });
+        }
+        if (this.closeOnEscape && this.closable) {
+            this.documentEscapeListener = this.renderer.listenGlobal('document', 'keydown', function (event) {
+                if (event.which == 27) {
+                    if (_this.el.nativeElement.children[0].style.zIndex == domhandler_1.DomHandler.zindex) {
+                        _this.hide(event);
+                    }
+                }
+            });
+        }
+        if (this.appendTo) {
+            if (this.appendTo === 'body')
+                document.body.appendChild(this.el.nativeElement);
+            else
+                this.domHandler.appendChild(this.el.nativeElement, this.appendTo);
+        }
+    };
+    ConfirmDialog.prototype.center = function () {
+        var container = this.el.nativeElement.children[0];
+        var elementWidth = this.domHandler.getOuterWidth(container);
+        var elementHeight = this.domHandler.getOuterHeight(container);
+        if (elementWidth == 0 && elementHeight == 0) {
+            container.style.visibility = 'hidden';
+            container.style.display = 'block';
+            elementWidth = this.domHandler.getOuterWidth(container);
+            elementHeight = this.domHandler.getOuterHeight(container);
+            container.style.display = 'none';
+            container.style.visibility = 'visible';
+        }
+        var viewport = this.domHandler.getViewport();
+        var x = (viewport.width - elementWidth) / 2;
+        var y = (viewport.height - elementHeight) / 2;
+        container.style.left = x + 'px';
+        container.style.top = y + 'px';
+    };
+    ConfirmDialog.prototype.enableModality = function () {
+        if (!this.mask) {
+            this.mask = document.createElement('div');
+            this.mask.style.zIndex = this.el.nativeElement.children[0].style.zIndex - 1;
+            this.domHandler.addMultipleClasses(this.mask, 'ui-widget-overlay ui-dialog-mask');
+            document.body.appendChild(this.mask);
+        }
+    };
+    ConfirmDialog.prototype.disableModality = function () {
+        if (this.mask) {
+            document.body.removeChild(this.mask);
+            this.mask = null;
+        }
+    };
+    ConfirmDialog.prototype.hide = function (event) {
+        this.visible = false;
+        if (event) {
+            event.preventDefault();
+        }
+    };
+    ConfirmDialog.prototype.moveOnTop = function () {
+        this.el.nativeElement.children[0].style.zIndex = ++domhandler_1.DomHandler.zindex;
+    };
+    ConfirmDialog.prototype.ngOnDestroy = function () {
+        this.disableModality();
+        if (this.documentResponsiveListener) {
+            this.documentResponsiveListener();
+        }
+        if (this.documentEscapeListener) {
+            this.documentEscapeListener();
+        }
+        if (this.appendTo && this.appendTo === 'body') {
+            document.body.removeChild(this.el.nativeElement);
+        }
+        this.subscription.unsubscribe();
+    };
+    ConfirmDialog.prototype.accept = function () {
+        if (this.confirmation.acceptEvent) {
+            this.confirmation.acceptEvent.emit();
+        }
+        this.hide();
+        this.confirmation = null;
+    };
+    ConfirmDialog.prototype.reject = function () {
+        if (this.confirmation.rejectEvent) {
+            this.confirmation.rejectEvent.emit();
+        }
+        this.hide();
+        this.confirmation = null;
+    };
+    return ConfirmDialog;
+}());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "header", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "icon", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "message", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "acceptIcon", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "acceptLabel", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "acceptVisible", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "rejectIcon", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "rejectLabel", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "rejectVisible", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ConfirmDialog.prototype, "width", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ConfirmDialog.prototype, "height", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "closeOnEscape", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "rtl", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "closable", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ConfirmDialog.prototype, "responsive", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], ConfirmDialog.prototype, "appendTo", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ConfirmDialog.prototype, "key", void 0);
+__decorate([
+    core_1.ContentChild(shared_1.Footer),
+    __metadata("design:type", Object)
+], ConfirmDialog.prototype, "footer", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], ConfirmDialog.prototype, "visible", null);
+ConfirmDialog = __decorate([
+    core_1.Component({
+        selector: 'p-confirmDialog',
+        template: "\n        <div [ngClass]=\"{'ui-dialog ui-confirmdialog ui-widget ui-widget-content ui-corner-all ui-shadow':true,'ui-dialog-rtl':rtl}\" \n            [style.display]=\"visible ? 'block' : 'none'\" [style.width.px]=\"width\" [style.height.px]=\"height\" (mousedown)=\"moveOnTop()\" [@dialogState]=\"visible ? 'visible' : 'hidden'\">\n            <div class=\"ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top\">\n                <span class=\"ui-dialog-title\" *ngIf=\"header\">{{header}}</span>\n                <a *ngIf=\"closable\"  [ngClass]=\"{'ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all':true}\" href=\"#\" role=\"button\" (click)=\"hide($event)\">\n                    <span class=\"fa fa-fw fa-close\"></span>\n                </a>\n            </div>\n            <div class=\"ui-dialog-content ui-widget-content\">\n                <i [class]=\"icon\"></i>\n                <span class=\"ui-confirmdialog-message\" [innerHTML]=\"message\"></span>\n            </div>\n            <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\" *ngIf=\"footer\">\n                <ng-content select=\"p-footer\"></ng-content>\n            </div>\n            <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\" *ngIf=\"!footer\">\n                <button type=\"button\" pButton [icon]=\"rejectIcon\" [label]=\"rejectLabel\" (click)=\"reject()\" *ngIf=\"rejectVisible\"></button>\n                <button type=\"button\" pButton [icon]=\"acceptIcon\" [label]=\"acceptLabel\" (click)=\"accept()\" *ngIf=\"acceptVisible\"></button>\n            </div>\n        </div>\n    ",
+        animations: [
+            animations_1.trigger('dialogState', [
+                animations_1.state('hidden', animations_1.style({
+                    opacity: 0
+                })),
+                animations_1.state('visible', animations_1.style({
+                    opacity: 1
+                })),
+                animations_1.transition('visible => hidden', animations_1.animate('400ms ease-in')),
+                animations_1.transition('hidden => visible', animations_1.animate('400ms ease-out'))
+            ])
+        ],
+        providers: [domhandler_1.DomHandler]
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef, domhandler_1.DomHandler,
+        core_1.Renderer, api_1.ConfirmationService])
+], ConfirmDialog);
+exports.ConfirmDialog = ConfirmDialog;
+var ConfirmDialogModule = (function () {
+    function ConfirmDialogModule() {
+    }
+    return ConfirmDialogModule;
+}());
+ConfirmDialogModule = __decorate([
+    core_1.NgModule({
+        imports: [common_1.CommonModule, button_1.ButtonModule],
+        exports: [ConfirmDialog, button_1.ButtonModule, shared_1.SharedModule],
+        declarations: [ConfirmDialog]
+    })
+], ConfirmDialogModule);
+exports.ConfirmDialogModule = ConfirmDialogModule;
+//# sourceMappingURL=confirmdialog.js.map
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
@@ -40224,7 +40512,7 @@ var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var forms_1 = __webpack_require__(7);
 var shared_1 = __webpack_require__(4);
-var paginator_1 = __webpack_require__(56);
+var paginator_1 = __webpack_require__(57);
 var shared_2 = __webpack_require__(4);
 var domhandler_1 = __webpack_require__(3);
 var ObjectUtils_1 = __webpack_require__(29);
@@ -40810,8 +41098,10 @@ var DataTable = (function () {
     DataTable.prototype.updateDataToRender = function (datasource) {
         if ((this.paginator || this.virtualScroll) && datasource) {
             this.dataToRender = [];
+			
             var startIndex = this.lazy ? 0 : this.first;
-            var endIndex = this.virtualScroll ? this.first + this.rows * 2 : startIndex + this.rows;
+            var endIndex = this.virtualScroll ? parseInt(this.first) + parseInt(this.rows) * 2 : parseInt(startIndex) + parseInt(this.rows);
+			
             for (var i = startIndex; i < endIndex; i++) {
                 if (i >= datasource.length) {
                     break;
@@ -42245,7 +42535,7 @@ function removeDiacritics (str) {
 }
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42424,299 +42714,11 @@ exports.PaginatorModule = PaginatorModule;
 //# sourceMappingURL=paginator.js.map
 
 /***/ }),
-/* 57 */,
 /* 58 */,
 /* 59 */,
 /* 60 */,
 /* 61 */,
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
-var common_1 = __webpack_require__(1);
-var domhandler_1 = __webpack_require__(3);
-var shared_1 = __webpack_require__(4);
-var button_1 = __webpack_require__(12);
-var api_1 = __webpack_require__(44);
-var ConfirmDialog = (function () {
-    function ConfirmDialog(el, domHandler, renderer, confirmationService) {
-        var _this = this;
-        this.el = el;
-        this.domHandler = domHandler;
-        this.renderer = renderer;
-        this.confirmationService = confirmationService;
-        this.acceptIcon = 'fa-check';
-        this.acceptLabel = 'Sim';
-        this.acceptVisible = true;
-        this.rejectIcon = 'fa-close';
-        this.rejectLabel = 'Não';
-        this.rejectVisible = true;
-        this.closeOnEscape = true;
-        this.closable = true;
-        this.responsive = true;
-        this.subscription = confirmationService.requireConfirmation$.subscribe(function (confirmation) {
-            if (confirmation.key === _this.key) {
-                _this.confirmation = confirmation;
-                _this.message = _this.confirmation.message || _this.message;
-                _this.icon = _this.confirmation.icon || _this.icon;
-                _this.header = _this.confirmation.header || _this.header;
-                _this.rejectVisible = _this.confirmation.rejectVisible == null ? _this.rejectVisible : _this.confirmation.rejectVisible;
-                _this.acceptVisible = _this.confirmation.acceptVisible == null ? _this.acceptVisible : _this.confirmation.acceptVisible;
-                if (_this.confirmation.accept) {
-                    _this.confirmation.acceptEvent = new core_1.EventEmitter();
-                    _this.confirmation.acceptEvent.subscribe(_this.confirmation.accept);
-                }
-                if (_this.confirmation.reject) {
-                    _this.confirmation.rejectEvent = new core_1.EventEmitter();
-                    _this.confirmation.rejectEvent.subscribe(_this.confirmation.reject);
-                }
-                _this.visible = true;
-            }
-        });
-    }
-    Object.defineProperty(ConfirmDialog.prototype, "visible", {
-        get: function () {
-            return this._visible;
-        },
-        set: function (val) {
-            this._visible = val;
-            if (this._visible) {
-                if (!this.positionInitialized) {
-                    this.center();
-                    this.positionInitialized = true;
-                }
-                this.el.nativeElement.children[0].style.zIndex = ++domhandler_1.DomHandler.zindex;
-            }
-            if (this._visible)
-                this.enableModality();
-            else
-                this.disableModality();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ConfirmDialog.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        this.contentContainer = this.domHandler.findSingle(this.el.nativeElement, '.ui-dialog-content');
-        if (this.responsive) {
-            this.documentResponsiveListener = this.renderer.listenGlobal('window', 'resize', function (event) {
-                _this.center();
-            });
-        }
-        if (this.closeOnEscape && this.closable) {
-            this.documentEscapeListener = this.renderer.listenGlobal('document', 'keydown', function (event) {
-                if (event.which == 27) {
-                    if (_this.el.nativeElement.children[0].style.zIndex == domhandler_1.DomHandler.zindex) {
-                        _this.hide(event);
-                    }
-                }
-            });
-        }
-        if (this.appendTo) {
-            if (this.appendTo === 'body')
-                document.body.appendChild(this.el.nativeElement);
-            else
-                this.domHandler.appendChild(this.el.nativeElement, this.appendTo);
-        }
-    };
-    ConfirmDialog.prototype.center = function () {
-        var container = this.el.nativeElement.children[0];
-        var elementWidth = this.domHandler.getOuterWidth(container);
-        var elementHeight = this.domHandler.getOuterHeight(container);
-        if (elementWidth == 0 && elementHeight == 0) {
-            container.style.visibility = 'hidden';
-            container.style.display = 'block';
-            elementWidth = this.domHandler.getOuterWidth(container);
-            elementHeight = this.domHandler.getOuterHeight(container);
-            container.style.display = 'none';
-            container.style.visibility = 'visible';
-        }
-        var viewport = this.domHandler.getViewport();
-        var x = (viewport.width - elementWidth) / 2;
-        var y = (viewport.height - elementHeight) / 2;
-        container.style.left = x + 'px';
-        container.style.top = y + 'px';
-    };
-    ConfirmDialog.prototype.enableModality = function () {
-        if (!this.mask) {
-            this.mask = document.createElement('div');
-            this.mask.style.zIndex = this.el.nativeElement.children[0].style.zIndex - 1;
-            this.domHandler.addMultipleClasses(this.mask, 'ui-widget-overlay ui-dialog-mask');
-            document.body.appendChild(this.mask);
-        }
-    };
-    ConfirmDialog.prototype.disableModality = function () {
-        if (this.mask) {
-            document.body.removeChild(this.mask);
-            this.mask = null;
-        }
-    };
-    ConfirmDialog.prototype.hide = function (event) {
-        this.visible = false;
-        if (event) {
-            event.preventDefault();
-        }
-    };
-    ConfirmDialog.prototype.moveOnTop = function () {
-        this.el.nativeElement.children[0].style.zIndex = ++domhandler_1.DomHandler.zindex;
-    };
-    ConfirmDialog.prototype.ngOnDestroy = function () {
-        this.disableModality();
-        if (this.documentResponsiveListener) {
-            this.documentResponsiveListener();
-        }
-        if (this.documentEscapeListener) {
-            this.documentEscapeListener();
-        }
-        if (this.appendTo && this.appendTo === 'body') {
-            document.body.removeChild(this.el.nativeElement);
-        }
-        this.subscription.unsubscribe();
-    };
-    ConfirmDialog.prototype.accept = function () {
-        if (this.confirmation.acceptEvent) {
-            this.confirmation.acceptEvent.emit();
-        }
-        this.hide();
-        this.confirmation = null;
-    };
-    ConfirmDialog.prototype.reject = function () {
-        if (this.confirmation.rejectEvent) {
-            this.confirmation.rejectEvent.emit();
-        }
-        this.hide();
-        this.confirmation = null;
-    };
-    return ConfirmDialog;
-}());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "header", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "icon", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "message", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "acceptIcon", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "acceptLabel", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "acceptVisible", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "rejectIcon", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "rejectLabel", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "rejectVisible", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ConfirmDialog.prototype, "width", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ConfirmDialog.prototype, "height", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "closeOnEscape", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "rtl", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "closable", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], ConfirmDialog.prototype, "responsive", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], ConfirmDialog.prototype, "appendTo", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ConfirmDialog.prototype, "key", void 0);
-__decorate([
-    core_1.ContentChild(shared_1.Footer),
-    __metadata("design:type", Object)
-], ConfirmDialog.prototype, "footer", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], ConfirmDialog.prototype, "visible", null);
-ConfirmDialog = __decorate([
-    core_1.Component({
-        selector: 'p-confirmDialog',
-        template: "\n        <div [ngClass]=\"{'ui-dialog ui-confirmdialog ui-widget ui-widget-content ui-corner-all ui-shadow':true,'ui-dialog-rtl':rtl}\" \n            [style.display]=\"visible ? 'block' : 'none'\" [style.width.px]=\"width\" [style.height.px]=\"height\" (mousedown)=\"moveOnTop()\" [@dialogState]=\"visible ? 'visible' : 'hidden'\">\n            <div class=\"ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top\">\n                <span class=\"ui-dialog-title\" *ngIf=\"header\">{{header}}</span>\n                <a *ngIf=\"closable\"  [ngClass]=\"{'ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all':true}\" href=\"#\" role=\"button\" (click)=\"hide($event)\">\n                    <span class=\"fa fa-fw fa-close\"></span>\n                </a>\n            </div>\n            <div class=\"ui-dialog-content ui-widget-content\">\n                <i [class]=\"icon\"></i>\n                <span class=\"ui-confirmdialog-message\" [innerHTML]=\"message\"></span>\n            </div>\n            <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\" *ngIf=\"footer\">\n                <ng-content select=\"p-footer\"></ng-content>\n            </div>\n            <div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\" *ngIf=\"!footer\">\n                <button type=\"button\" pButton [icon]=\"rejectIcon\" [label]=\"rejectLabel\" (click)=\"reject()\" *ngIf=\"rejectVisible\"></button>\n                <button type=\"button\" pButton [icon]=\"acceptIcon\" [label]=\"acceptLabel\" (click)=\"accept()\" *ngIf=\"acceptVisible\"></button>\n            </div>\n        </div>\n    ",
-        animations: [
-            animations_1.trigger('dialogState', [
-                animations_1.state('hidden', animations_1.style({
-                    opacity: 0
-                })),
-                animations_1.state('visible', animations_1.style({
-                    opacity: 1
-                })),
-                animations_1.transition('visible => hidden', animations_1.animate('400ms ease-in')),
-                animations_1.transition('hidden => visible', animations_1.animate('400ms ease-out'))
-            ])
-        ],
-        providers: [domhandler_1.DomHandler]
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, domhandler_1.DomHandler,
-        core_1.Renderer, api_1.ConfirmationService])
-], ConfirmDialog);
-exports.ConfirmDialog = ConfirmDialog;
-var ConfirmDialogModule = (function () {
-    function ConfirmDialogModule() {
-    }
-    return ConfirmDialogModule;
-}());
-ConfirmDialogModule = __decorate([
-    core_1.NgModule({
-        imports: [common_1.CommonModule, button_1.ButtonModule],
-        exports: [ConfirmDialog, button_1.ButtonModule, shared_1.SharedModule],
-        declarations: [ConfirmDialog]
-    })
-], ConfirmDialogModule);
-exports.ConfirmDialogModule = ConfirmDialogModule;
-//# sourceMappingURL=confirmdialog.js.map
-
-/***/ }),
+/* 62 */,
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42733,7 +42735,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
 var domhandler_1 = __webpack_require__(3);
@@ -43231,10 +43233,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(5);
 var Subscriber_1 = __webpack_require__(24);
-var Subscription_1 = __webpack_require__(96);
-var ObjectUnsubscribedError_1 = __webpack_require__(202);
+var Subscription_1 = __webpack_require__(97);
+var ObjectUnsubscribedError_1 = __webpack_require__(201);
 var SubjectSubscription_1 = __webpack_require__(475);
-var rxSubscriber_1 = __webpack_require__(138);
+var rxSubscriber_1 = __webpack_require__(137);
 /**
  * @class SubjectSubscriber<T>
  */
@@ -43780,7 +43782,8 @@ exports.TabViewModule = TabViewModule;
 /* 90 */,
 /* 91 */,
 /* 92 */,
-/* 93 */
+/* 93 */,
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43796,7 +43799,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var button_1 = __webpack_require__(12);
 var domhandler_1 = __webpack_require__(3);
@@ -44883,7 +44886,7 @@ exports.CalendarModule = CalendarModule;
 //# sourceMappingURL=calendar.js.map
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45036,7 +45039,7 @@ exports.CheckboxModule = CheckboxModule;
 //# sourceMappingURL=checkbox.js.map
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45072,16 +45075,16 @@ exports.OuterSubscriber = OuterSubscriber;
 //# sourceMappingURL=OuterSubscriber.js.map
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var isArray_1 = __webpack_require__(140);
-var isObject_1 = __webpack_require__(206);
-var isFunction_1 = __webpack_require__(205);
+var isArray_1 = __webpack_require__(139);
+var isObject_1 = __webpack_require__(205);
+var isFunction_1 = __webpack_require__(204);
 var tryCatch_1 = __webpack_require__(499);
-var errorObject_1 = __webpack_require__(203);
+var errorObject_1 = __webpack_require__(202);
 var UnsubscriptionError_1 = __webpack_require__(497);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
@@ -45271,19 +45274,19 @@ function flattenUnsubscriptionErrors(errors) {
 //# sourceMappingURL=Subscription.js.map
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var root_1 = __webpack_require__(46);
-var isArrayLike_1 = __webpack_require__(204);
-var isPromise_1 = __webpack_require__(207);
-var isObject_1 = __webpack_require__(206);
+var isArrayLike_1 = __webpack_require__(203);
+var isPromise_1 = __webpack_require__(206);
+var isObject_1 = __webpack_require__(205);
 var Observable_1 = __webpack_require__(5);
-var iterator_1 = __webpack_require__(136);
+var iterator_1 = __webpack_require__(135);
 var InnerSubscriber_1 = __webpack_require__(473);
-var observable_1 = __webpack_require__(137);
+var observable_1 = __webpack_require__(136);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
     if (destination.closed) {
@@ -45355,7 +45358,7 @@ exports.subscribeToResult = subscribeToResult;
 //# sourceMappingURL=subscribeToResult.js.map
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 var g;
@@ -45382,7 +45385,6 @@ module.exports = g;
 
 
 /***/ }),
-/* 99 */,
 /* 100 */,
 /* 101 */,
 /* 102 */,
@@ -45411,8 +45413,7 @@ module.exports = g;
 /* 125 */,
 /* 126 */,
 /* 127 */,
-/* 128 */,
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45538,7 +45539,7 @@ exports.ClickOutsideDirective = ClickOutsideDirective;
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45547,7 +45548,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(44));
+__export(__webpack_require__(32));
 __export(__webpack_require__(4));
 __export(__webpack_require__(415));
 __export(__webpack_require__(416));
@@ -45555,18 +45556,18 @@ __export(__webpack_require__(417));
 __export(__webpack_require__(418));
 __export(__webpack_require__(12));
 __export(__webpack_require__(419));
-__export(__webpack_require__(93));
+__export(__webpack_require__(94));
 __export(__webpack_require__(420));
 __export(__webpack_require__(421));
-__export(__webpack_require__(94));
+__export(__webpack_require__(95));
 __export(__webpack_require__(422));
 __export(__webpack_require__(423));
 __export(__webpack_require__(424));
 __export(__webpack_require__(425));
 __export(__webpack_require__(426));
 __export(__webpack_require__(427));
+__export(__webpack_require__(56));
 __export(__webpack_require__(55));
-__export(__webpack_require__(62));
 __export(__webpack_require__(45));
 __export(__webpack_require__(428));
 __export(__webpack_require__(63));
@@ -45586,16 +45587,16 @@ __export(__webpack_require__(440));
 __export(__webpack_require__(441));
 __export(__webpack_require__(442));
 __export(__webpack_require__(443));
-__export(__webpack_require__(191));
+__export(__webpack_require__(190));
 __export(__webpack_require__(444));
 __export(__webpack_require__(445));
 __export(__webpack_require__(446));
-__export(__webpack_require__(56));
+__export(__webpack_require__(57));
 __export(__webpack_require__(447));
 __export(__webpack_require__(448));
 __export(__webpack_require__(449));
+__export(__webpack_require__(191));
 __export(__webpack_require__(192));
-__export(__webpack_require__(193));
 __export(__webpack_require__(450));
 __export(__webpack_require__(451));
 __export(__webpack_require__(452));
@@ -45618,7 +45619,7 @@ __export(__webpack_require__(467));
 //# sourceMappingURL=primeng.js.map
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45629,7 +45630,7 @@ Observable_1.Observable.prototype.toPromise = toPromise_1.toPromise;
 //# sourceMappingURL=toPromise.js.map
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45640,9 +45641,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(5);
-var ScalarObservable_1 = __webpack_require__(198);
-var EmptyObservable_1 = __webpack_require__(133);
-var isScheduler_1 = __webpack_require__(208);
+var ScalarObservable_1 = __webpack_require__(197);
+var EmptyObservable_1 = __webpack_require__(132);
+var isScheduler_1 = __webpack_require__(207);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -45757,7 +45758,7 @@ exports.ArrayObservable = ArrayObservable;
 //# sourceMappingURL=ArrayObservable.js.map
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45844,7 +45845,7 @@ exports.EmptyObservable = EmptyObservable;
 //# sourceMappingURL=EmptyObservable.js.map
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45937,7 +45938,7 @@ var MapSubscriber = (function (_super) {
 //# sourceMappingURL=map.js.map
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45947,8 +45948,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = __webpack_require__(95);
-var subscribeToResult_1 = __webpack_require__(97);
+var OuterSubscriber_1 = __webpack_require__(96);
+var subscribeToResult_1 = __webpack_require__(98);
 /**
  * Converts a higher-order Observable into a first-order Observable which
  * concurrently delivers all values that are emitted on the inner Observables.
@@ -46054,7 +46055,7 @@ exports.MergeAllSubscriber = MergeAllSubscriber;
 //# sourceMappingURL=mergeAll.js.map
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46098,7 +46099,7 @@ exports.$$iterator = exports.iterator;
 //# sourceMappingURL=iterator.js.map
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46130,7 +46131,7 @@ exports.$$observable = exports.observable;
 //# sourceMappingURL=observable.js.map
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46146,7 +46147,7 @@ exports.$$rxSubscriber = exports.rxSubscriber;
 //# sourceMappingURL=rxSubscriber.js.map
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46180,7 +46181,7 @@ exports.EmptyError = EmptyError;
 //# sourceMappingURL=EmptyError.js.map
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46189,12 +46190,12 @@ exports.isArray = Array.isArray || (function (x) { return x && typeof x.length =
 //# sourceMappingURL=isArray.js.map
 
 /***/ }),
-/* 141 */,
-/* 142 */
+/* 140 */,
+/* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(33);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnimationDriver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AnimationEngine; });
 /* unused harmony export ɵAnimation */
@@ -48727,6 +48728,7 @@ function supportsWebAnimations() {
 
 
 /***/ }),
+/* 142 */,
 /* 143 */,
 /* 144 */,
 /* 145 */,
@@ -48774,8 +48776,7 @@ function supportsWebAnimations() {
 /* 187 */,
 /* 188 */,
 /* 189 */,
-/* 190 */,
-/* 191 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48876,7 +48877,7 @@ exports.MessagesModule = MessagesModule;
 //# sourceMappingURL=messages.js.map
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49205,7 +49206,7 @@ exports.PickListModule = PickListModule;
 //# sourceMappingURL=picklist.js.map
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49264,7 +49265,7 @@ exports.ProgressBarModule = ProgressBarModule;
 //# sourceMappingURL=progressbar.js.map
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49278,30 +49279,30 @@ exports.empty = {
 //# sourceMappingURL=Observer.js.map
 
 /***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__(5);
+var catch_1 = __webpack_require__(199);
+Observable_1.Observable.prototype.catch = catch_1._catch;
+Observable_1.Observable.prototype._catch = catch_1._catch;
+//# sourceMappingURL=catch.js.map
+
+/***/ }),
 /* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(5);
-var catch_1 = __webpack_require__(200);
-Observable_1.Observable.prototype.catch = catch_1._catch;
-Observable_1.Observable.prototype._catch = catch_1._catch;
-//# sourceMappingURL=catch.js.map
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var Observable_1 = __webpack_require__(5);
-var map_1 = __webpack_require__(134);
+var map_1 = __webpack_require__(133);
 Observable_1.Observable.prototype.map = map_1.map;
 //# sourceMappingURL=map.js.map
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49428,7 +49429,7 @@ function dispatchError(arg) {
 //# sourceMappingURL=PromiseObservable.js.map
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49492,17 +49493,17 @@ exports.ScalarObservable = ScalarObservable;
 //# sourceMappingURL=ScalarObservable.js.map
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var PromiseObservable_1 = __webpack_require__(197);
+var PromiseObservable_1 = __webpack_require__(196);
 exports.fromPromise = PromiseObservable_1.PromiseObservable.create;
 //# sourceMappingURL=fromPromise.js.map
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49512,8 +49513,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = __webpack_require__(95);
-var subscribeToResult_1 = __webpack_require__(97);
+var OuterSubscriber_1 = __webpack_require__(96);
+var subscribeToResult_1 = __webpack_require__(98);
 /**
  * Catches errors on the observable to be handled by returning a new observable or throwing an error.
  *
@@ -49624,7 +49625,7 @@ var CatchSubscriber = (function (_super) {
 //# sourceMappingURL=catch.js.map
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49634,8 +49635,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var subscribeToResult_1 = __webpack_require__(97);
-var OuterSubscriber_1 = __webpack_require__(95);
+var subscribeToResult_1 = __webpack_require__(98);
+var OuterSubscriber_1 = __webpack_require__(96);
 /* tslint:enable:max-line-length */
 /**
  * Projects each source value to an Observable which is merged in the output
@@ -49801,7 +49802,7 @@ exports.MergeMapSubscriber = MergeMapSubscriber;
 //# sourceMappingURL=mergeMap.js.map
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49834,7 +49835,7 @@ exports.ObjectUnsubscribedError = ObjectUnsubscribedError;
 //# sourceMappingURL=ObjectUnsubscribedError.js.map
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49844,7 +49845,7 @@ exports.errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49853,7 +49854,7 @@ exports.isArrayLike = (function (x) { return x && typeof x.length === 'number'; 
 //# sourceMappingURL=isArrayLike.js.map
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49865,7 +49866,7 @@ exports.isFunction = isFunction;
 //# sourceMappingURL=isFunction.js.map
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49877,7 +49878,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49889,7 +49890,7 @@ exports.isPromise = isPromise;
 //# sourceMappingURL=isPromise.js.map
 
 /***/ }),
-/* 208 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49901,6 +49902,7 @@ exports.isScheduler = isScheduler;
 //# sourceMappingURL=isScheduler.js.map
 
 /***/ }),
+/* 208 */,
 /* 209 */,
 /* 210 */,
 /* 211 */,
@@ -49916,14 +49918,13 @@ exports.isScheduler = isScheduler;
 /* 221 */,
 /* 222 */,
 /* 223 */,
-/* 224 */,
-/* 225 */
+/* 224 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_animations_browser__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_animations_browser__ = __webpack_require__(141);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return BrowserAnimationsModule; });
 /* unused harmony export NoopAnimationsModule */
 /* unused harmony export ɵAnimationRenderer */
@@ -50403,11 +50404,11 @@ NoopAnimationsModule.ctorParameters = function () { return []; };
 
 
 /***/ }),
-/* 226 */
+/* 225 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_angular2_font_awesome_component__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_angular2_font_awesome_component__ = __webpack_require__(226);
 /* unused harmony namespace reexport */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Angular2FontAwesomeModule; });
 var Angular2FontAwesomeModule = (function () {
@@ -50420,7 +50421,7 @@ var Angular2FontAwesomeModule = (function () {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 227 */
+/* 226 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50468,6 +50469,7 @@ var Angular2FontAwesomeComponent = (function () {
 //# sourceMappingURL=angular2-font-awesome.component.js.map
 
 /***/ }),
+/* 227 */,
 /* 228 */,
 /* 229 */,
 /* 230 */,
@@ -50661,7 +50663,7 @@ var Angular2FontAwesomeComponent = (function () {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var click_outside_directive_1 = __webpack_require__(129);
+var click_outside_directive_1 = __webpack_require__(128);
 var ClickOutsideModule = (function () {
     function ClickOutsideModule() {
     }
@@ -50695,7 +50697,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
 var Accordion = (function () {
@@ -52707,7 +52709,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
-var paginator_1 = __webpack_require__(56);
+var paginator_1 = __webpack_require__(57);
 var DataGrid = (function () {
     function DataGrid(el) {
         this.el = el;
@@ -52921,7 +52923,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
-var paginator_1 = __webpack_require__(56);
+var paginator_1 = __webpack_require__(57);
 var DataList = (function () {
     function DataList(el) {
         this.el = el;
@@ -53747,7 +53749,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
 var Fieldset = (function () {
@@ -53867,8 +53869,8 @@ var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var platform_browser_1 = __webpack_require__(30);
 var button_1 = __webpack_require__(12);
-var messages_1 = __webpack_require__(191);
-var progressbar_1 = __webpack_require__(193);
+var messages_1 = __webpack_require__(190);
+var progressbar_1 = __webpack_require__(192);
 var shared_1 = __webpack_require__(4);
 var FileUpload = (function () {
     function FileUpload(sanitizer) {
@@ -57558,7 +57560,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var Panel = (function () {
     function Panel(el) {
         this.el = el;
@@ -57691,7 +57693,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(0);
-var animations_1 = __webpack_require__(32);
+var animations_1 = __webpack_require__(33);
 var common_1 = __webpack_require__(1);
 var router_1 = __webpack_require__(8);
 var BasePanelMenuItem = (function () {
@@ -60803,7 +60805,7 @@ var core_2 = __webpack_require__(0);
 var common_1 = __webpack_require__(1);
 var shared_1 = __webpack_require__(4);
 var shared_2 = __webpack_require__(4);
-var api_1 = __webpack_require__(44);
+var api_1 = __webpack_require__(32);
 var TreeNodeTemplateLoader = (function () {
     function TreeNodeTemplateLoader(viewContainer) {
         this.viewContainer = viewContainer;
@@ -62028,7 +62030,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subject_1 = __webpack_require__(64);
-var ObjectUnsubscribedError_1 = __webpack_require__(202);
+var ObjectUnsubscribedError_1 = __webpack_require__(201);
 /**
  * @class BehaviorSubject<T>
  */
@@ -62257,7 +62259,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscription_1 = __webpack_require__(96);
+var Subscription_1 = __webpack_require__(97);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -62304,8 +62306,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(5);
-var ScalarObservable_1 = __webpack_require__(198);
-var EmptyObservable_1 = __webpack_require__(133);
+var ScalarObservable_1 = __webpack_require__(197);
+var EmptyObservable_1 = __webpack_require__(132);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -62382,7 +62384,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var Subject_1 = __webpack_require__(64);
 var Observable_1 = __webpack_require__(5);
 var Subscriber_1 = __webpack_require__(24);
-var Subscription_1 = __webpack_require__(96);
+var Subscription_1 = __webpack_require__(97);
 /**
  * @class ConnectableObservable<T>
  */
@@ -62555,10 +62557,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(5);
-var EmptyObservable_1 = __webpack_require__(133);
-var isArray_1 = __webpack_require__(140);
-var subscribeToResult_1 = __webpack_require__(97);
-var OuterSubscriber_1 = __webpack_require__(95);
+var EmptyObservable_1 = __webpack_require__(132);
+var isArray_1 = __webpack_require__(139);
+var subscribeToResult_1 = __webpack_require__(98);
+var OuterSubscriber_1 = __webpack_require__(96);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -62672,17 +62674,17 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isArray_1 = __webpack_require__(140);
-var isArrayLike_1 = __webpack_require__(204);
-var isPromise_1 = __webpack_require__(207);
-var PromiseObservable_1 = __webpack_require__(197);
+var isArray_1 = __webpack_require__(139);
+var isArrayLike_1 = __webpack_require__(203);
+var isPromise_1 = __webpack_require__(206);
+var PromiseObservable_1 = __webpack_require__(196);
 var IteratorObservable_1 = __webpack_require__(480);
-var ArrayObservable_1 = __webpack_require__(132);
+var ArrayObservable_1 = __webpack_require__(131);
 var ArrayLikeObservable_1 = __webpack_require__(476);
-var iterator_1 = __webpack_require__(136);
+var iterator_1 = __webpack_require__(135);
 var Observable_1 = __webpack_require__(5);
 var observeOn_1 = __webpack_require__(493);
-var observable_1 = __webpack_require__(137);
+var observable_1 = __webpack_require__(136);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -62802,7 +62804,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var root_1 = __webpack_require__(46);
 var Observable_1 = __webpack_require__(5);
-var iterator_1 = __webpack_require__(136);
+var iterator_1 = __webpack_require__(135);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -62994,7 +62996,7 @@ exports.merge = merge_1.mergeStatic;
 
 "use strict";
 
-var ArrayObservable_1 = __webpack_require__(132);
+var ArrayObservable_1 = __webpack_require__(131);
 exports.of = ArrayObservable_1.ArrayObservable.of;
 //# sourceMappingURL=of.js.map
 
@@ -63004,7 +63006,7 @@ exports.of = ArrayObservable_1.ArrayObservable.of;
 
 "use strict";
 
-var mergeAll_1 = __webpack_require__(135);
+var mergeAll_1 = __webpack_require__(134);
 /* tslint:enable:max-line-length */
 /**
  * Converts a higher-order Observable into a first-order Observable by
@@ -63066,7 +63068,7 @@ exports.concatAll = concatAll;
 
 "use strict";
 
-var mergeMap_1 = __webpack_require__(201);
+var mergeMap_1 = __webpack_require__(200);
 /* tslint:enable:max-line-length */
 /**
  * Projects each source value to an Observable which is merged in the output
@@ -63327,7 +63329,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(24);
-var EmptyError_1 = __webpack_require__(139);
+var EmptyError_1 = __webpack_require__(138);
 /**
  * Emits only the first value (or the first value that meets some condition)
  * emitted by the source Observable.
@@ -63485,7 +63487,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(24);
-var EmptyError_1 = __webpack_require__(139);
+var EmptyError_1 = __webpack_require__(138);
 /* tslint:enable:max-line-length */
 /**
  * Returns an Observable that emits only the last item emitted by the source Observable.
@@ -63605,9 +63607,9 @@ var LastSubscriber = (function (_super) {
 "use strict";
 
 var Observable_1 = __webpack_require__(5);
-var ArrayObservable_1 = __webpack_require__(132);
-var mergeAll_1 = __webpack_require__(135);
-var isScheduler_1 = __webpack_require__(208);
+var ArrayObservable_1 = __webpack_require__(131);
+var mergeAll_1 = __webpack_require__(134);
+var isScheduler_1 = __webpack_require__(207);
 /* tslint:enable:max-line-length */
 /**
  * Creates an output Observable which concurrently emits all values from every
@@ -64209,8 +64211,8 @@ exports.UnsubscriptionError = UnsubscriptionError;
 "use strict";
 
 var Subscriber_1 = __webpack_require__(24);
-var rxSubscriber_1 = __webpack_require__(138);
-var Observer_1 = __webpack_require__(194);
+var rxSubscriber_1 = __webpack_require__(137);
+var Observer_1 = __webpack_require__(193);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -64234,7 +64236,7 @@ exports.toSubscriber = toSubscriber;
 
 "use strict";
 
-var errorObject_1 = __webpack_require__(203);
+var errorObject_1 = __webpack_require__(202);
 var tryCatchTarget;
 function tryCatcher() {
     try {
