@@ -119,7 +119,9 @@ $(document).ready(function () {
 		$(".tabcss .ui-tabview-nav").children().each(function () {
 			count1 = count1 + $(this).outerHeight(true);
 		});
-
+		if (count1 == 0) {
+			$('.tabcss .ui-widget-content').css({ 'min-height': '100px' })
+		}
 		var panel = $('.tabcss .ui-tabview-nav').height();
 
 		if (panel != 0 && panel > count1) {
@@ -128,7 +130,7 @@ $(document).ready(function () {
 			if (count1 != 0) {
 				$('.tabcss .ui-widget-content').css({ 'min-height': count1 + 'px' })
 			} else {
-				$('.tabcss .ui-widget-content').css({ 'min-height': '150px' })
+				$('.tabcss .ui-widget-content').css({ 'min-height': '100px' })
 			}
 		}
 
@@ -155,8 +157,8 @@ $(document).ready(function () {
 			directionX: 'center', // 'center', 'left' or 'right'. 'center' = dots bounce off edges
 			directionY: 'center', // 'center', 'up' or 'down'. 'center' = dots bounce off edges
 			density: 10000, // How many particles will be generated: one particle every n pixels
-			dotColor: '#417ece',
-			lineColor: '#417ece',
+			dotColor: '#6eacff',
+			lineColor: '#6eacff',
 			particleRadius: 7, // Dot size
 			lineWidth: 1,
 			curvedLines: true,

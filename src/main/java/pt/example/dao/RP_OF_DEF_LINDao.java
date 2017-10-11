@@ -23,6 +23,16 @@ public class RP_OF_DEF_LINDao extends GenericDaoJpaImpl<RP_OF_DEF_LIN, Integer>
 		return utz;
 
 	}
+	
+	public List<RP_OF_DEF_LIN> getbyid_op_lin(Integer id) {
+
+		Query query = entityManager.createQuery(
+				"Select a from RP_OF_DEF_LIN a where ID_OP_LIN = :id order by COD_DEF asc");
+		query.setParameter("id", id);
+		List<RP_OF_DEF_LIN> utz = query.getResultList();
+		return utz;
+
+	}
 
 	public List<RP_OF_DEF_LIN> getbyidDEF(Integer id) {
 

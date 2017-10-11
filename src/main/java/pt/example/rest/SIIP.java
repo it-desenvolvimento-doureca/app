@@ -228,7 +228,7 @@ public class SIIP {
 	public List<RP_OF_CAB> listof() {
 		return dao.getall();
 	}
-	
+
 	@GET
 	@Path("/getRP_OF_CABbyid/{id}")
 	@Produces("application/json")
@@ -288,8 +288,9 @@ public class SIIP {
 	@GET
 	@Path("/getdataof/{id}/{user}/{estado}")
 	@Produces("application/json")
-	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user, @PathParam("estado") String estado) {
-		return dao11.getbyid(id, user,estado);
+	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user,
+			@PathParam("estado") String estado) {
+		return dao11.getbyid(id, user, estado);
 	}
 
 	@GET
@@ -465,7 +466,7 @@ public class SIIP {
 	public List<RP_OF_OP_FUNC> getRP_OF_OP_FUNCid(@PathParam("id") Integer id, @PathParam("user") String user) {
 		return dao11.getbyallID_OP_CAB(id, user);
 	}
-	
+
 	@GET
 	@Path("/getRP_OF_OP_FUNCusers/{id}")
 	@Produces("application/json")
@@ -531,6 +532,13 @@ public class SIIP {
 	}
 
 	@GET
+	@Path("/getbyidRP_OF_DEF_LINidoplin/{id}")
+	@Produces("application/json")
+	public List<RP_OF_DEF_LIN> getbyid_op_lin(@PathParam("id") Integer id) {
+		return dao5.getbyid_op_lin(id);
+	}
+
+	@GET
 	@Path("/getbyidDEF/{id}")
 	@Produces("application/json")
 	public List<RP_OF_DEF_LIN> getbyidDEF(@PathParam("id") Integer id) {
@@ -545,8 +553,7 @@ public class SIIP {
 		RP_OF_DEF_LIN.setQUANT_DEF(RP_OF_DEF_LIN.getQUANT_DEF());
 		return dao5.update(RP_OF_DEF_LIN);
 	}
-	
-	
+
 	@DELETE
 	@Path("/deleteRP_OF_DEF_LIN/{id}")
 	public void deleteRP_OF_DEF_LIN(@PathParam("id") Integer id) {
@@ -561,7 +568,6 @@ public class SIIP {
 	public RP_OF_OUTRODEF_LIN insertRP_OF_OUTRODEF_LIN(final RP_OF_OUTRODEF_LIN data) {
 		return dao12.create(data);
 	}
-
 
 	@GET
 	@Path("/getbyidRP_OF_OUTRODEF_LINF/{id}")
