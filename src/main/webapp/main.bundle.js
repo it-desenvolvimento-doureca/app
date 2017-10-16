@@ -855,6 +855,7 @@ var ControloComponent = (function () {
         this.router = router;
         this.RPOFOPLINService = RPOFOPLINService;
         this.RPOFCABService = RPOFCABService;
+        this.count3 = 0;
         this.start_row = 0;
         this.pesquisa = null;
         this.atualizacao = true;
@@ -888,9 +889,9 @@ var ControloComponent = (function () {
             this.RPOFCABService.getAll().subscribe(function (res) {
                 _this.count = 0;
                 var total = Object.keys(res).length;
-                if (_this.start_row > total)
+                if (_this.start_row >= total)
                     _this.start_row = total;
-                if (_this.num_rows > total) {
+                if (_this.num_rows >= total) {
                     _this.num_rows = total;
                     _this.hiddenvermais = true;
                 }
@@ -1035,7 +1036,8 @@ var ControloComponent = (function () {
             cor_tempo_prod: cor_tempo_prod,
             cor_estado: cor_estado
         });
-        if (this.dados.length == this.num_rows) {
+        this.count3++;
+        if (this.count3 == this.num_rows) {
             this.atualizacao = true;
             if (this.dados.find(function (item) { return item.pos == count; })) {
                 this.dados.find(function (item) { return item.pos == count; }).cor_estado = cor_estado;
@@ -1057,6 +1059,7 @@ var ControloComponent = (function () {
         this.num_rows = this.items;
         this.hiddenvermais = false;
         this.dados = [];
+        this.count3 = 0;
         this.inicia();
     };
     ControloComponent.prototype.onRowSelect = function (event) {
@@ -3141,7 +3144,12 @@ var RegistoQuantidadesComponent = (function () {
                 _this.index++;
                 _this.tabSets.push(tab);
                 _this.ordernar();
-                _this.positions.push({ index: _this.index, id: id_op_sec });
+                var count = 1;
+                _this.positions = [];
+                for (var x in _this.tabSets) {
+                    _this.positions.push({ index: count, id: _this.tabSets[x].id });
+                    count++;
+                }
                 if (_this.index == 1)
                     _this.getinputs(_this.positions[0].id);
             }
@@ -30709,7 +30717,7 @@ var OperacaoEmCursoComponent = (function () {
                     cor = "#2be32b";
                 if (total > res[x].quant_OF)
                     cor = "rgba(255, 0, 0, 0.68)";
-                _this.defeitos.push({ id: count, ref_num: res[x].ref_NUM, cor: cor, ref_des: res[x].ref_DES, quant_of: res[x].quant_OF, quant_boas: res[x].quant_BOAS_TOTAL, quant_def_total: res[x].quant_DEF_TOTAL, quant_control: total, comp: comp });
+                _this.defeitos.push({ id: id_op_cab, ref_num: res[x].ref_NUM, cor: cor, ref_des: res[x].ref_DES, quant_of: res[x].quant_OF, quant_boas: res[x].quant_BOAS_TOTAL, quant_def_total: res[x].quant_DEF_TOTAL, quant_control: total, comp: comp });
             }
             _this.defeitos = _this.defeitos.slice();
             _this.ordernar();

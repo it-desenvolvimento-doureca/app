@@ -74,7 +74,8 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getOF(String ofnum) throws SQLException {
 
-		String query = "select * from PUB.\"SOFA\" where ofnum= '" + ofnum + "'";
+		String query = "select a.ofnum,a.ofanumenr,a.ofref,b.OFETAT from PUB.\"SOFA\" a "
+				+ " left join PUB.\"SOFB\" b on a.OFANUMENR = b.OFANUMENR where a.ofnum= '" + ofnum + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -87,6 +88,7 @@ public class ConnectProgress {
 				x.put("ofnum", rs.getString("ofnum"));
 				x.put("ofanumenr", rs.getString("ofanumenr"));
 				x.put("ofref", rs.getString("ofref"));
+				x.put("OFETAT", rs.getString("OFETAT"));
 				list.add(x);
 			}
 			stmt.close();
@@ -103,7 +105,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getOP(String ofanumenr) throws SQLException {
 
-		String query = "select * from PUB.\"SOFD\" where ofanumenr= '" + ofanumenr + "'";
+		String query = "select OPECOD,OPENUM,OPEDES,SECNUMENR1 from PUB.\"SOFD\" where ofanumenr= '" + ofanumenr + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -134,7 +136,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getallOP() throws SQLException {
 
-		String query = "select * from PUB.\"SDTOPP\"";
+		String query = "select OPECOD,OPEDES,SECNUMENR1 from PUB.\"SDTOPP\"";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -163,7 +165,7 @@ public class ConnectProgress {
 	}
 
 	public List<HashMap<String, String>> getallOPNOTIN(String data) throws SQLException {
-		String query = "select * from PUB.\"SDTOPP\"";
+		String query = "select OPECOD,OPEDES,SECNUMENR1 from PUB.\"SDTOPP\"";
 		if (!data.equals("null")) {
 			query += " where OPECOD not in(" + data + ")";
 		}
@@ -195,7 +197,7 @@ public class ConnectProgress {
 	}
 
 	public List<HashMap<String, String>> getallfamNOTIN(String data) throws SQLException {
-		String query = "select * from PUB.\"SPAFAM\"";
+		String query = "select FAMCOD,FAMLIB from PUB.\"SPAFAM\"";
 		if (!data.equals("null")) {
 			query += " where FAMCOD not in(" + data + ")";
 		}
@@ -256,7 +258,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getMaq(String SECNUMENR) throws SQLException {
 
-		String query = "select * from PUB.\"SDTSEC\" a " + "inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod "
+		String query = "select a.SECCOD, a.ssecod ,c.SECLIB,b.SSEDES from PUB.\"SDTSEC\" a " + "inner join PUB.\"SPASSE\" b on a.ssecod = b.ssecod "
 				+ "inner join PUB.\"SPASEC\" c on a.seccod = c.seccod " + "where a.SECNUMENR= '" + SECNUMENR + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -347,7 +349,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getfilhos(String pai) throws SQLException {
 
-		String query = "select * from PUB.\"SDTNCL\" a " + "inner join PUB.\"SDTPRA\" b on a.PROREFCST = b.PROREF  "
+		String query = "select b.PROREF,b.PRODES1,b.PRODES2,a.PROREFCST,b.PRDFAMCOD from PUB.\"SDTNCL\" a " + "inner join PUB.\"SDTPRA\" b on a.PROREFCST = b.PROREF  "
 				+ " where a.PROREFCSE ='" + pai + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -380,7 +382,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getDefeitos(String fam) throws SQLException {
 
-		String query = "select * from PUB.\"SPAQUA\" where  LEFT(QUACOD,2)='" + fam + "'";
+		String query = "select QUACOD,QUALIB from PUB.\"SPAQUA\" where  LEFT(QUACOD,2)='" + fam + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -409,7 +411,8 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getRef(String OFANUMENR) throws SQLException {
 
-		String query = "select * from PUB.\"SOFB\"a " + "inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  "
+		String query = "select a.PROREF, b.PRODES1,b.PRODES2,a.VA1REF, a.VA2REF,a.INDREF,a.OFBQTEINI,a.INDNUMENR,c.FAMCOD,d.ZPAVAL,b.PRDFAMCOD "
+				+ "from PUB.\"SOFB\"a " + "inner join PUB.\"SDTPRA\" b on a.PROREF = b.PROREF  "
 				+ "inner join PUB.\"SPAFAM\" c on b.PRDFAMCOD = c.FAMCOD  "
 				+ "left join (select * from PUB.\"SDTZPA\" f where f.ZPACOD='ALER') d on b.ZPANUM = d.ZPANUM "
 				+ "inner join PUB.\"SPAPRT\" e on b.PROTYPCOD = e.PROTYPCOD " + "where a.OFANUMENR= '" + OFANUMENR
@@ -449,10 +452,11 @@ public class ConnectProgress {
 		}
 		return list;
 	}
-	
+
 	public List<HashMap<String, String>> getOPtop1(String ofanumenr) throws SQLException {
 
-		String query = "select top 1 * from PUB.\"SOFD\" a where ofanumenr= '" + ofanumenr + "' and OPECOD != '' order by a.OPENUM desc";
+		String query = "select top 1 * from PUB.\"SOFD\" a where ofanumenr= '" + ofanumenr
+				+ "' and OPECOD != '' order by a.OPENUM desc";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -483,7 +487,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getEtiqueta(String etiqueta) throws SQLException {
 
-		String query = "select OFNUM, b.ofanumenr,ofref,OFBQTEINI,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
+		String query = "select b.OFNUM, b.ofanumenr,ofref,OFBQTEINI,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
 				+ "inner join PUB.\"SOFA\" b on b.ofnum = left(a.etqoridoc1,10) "
 				+ "inner join PUB.\"SOFB\" c on b.OFANUMENR = c.OFANUMENR " + "where a.etqnum = '" + etiqueta + "'";
 
@@ -521,7 +525,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getUsers() throws SQLException {
 
-		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO' ";
+		String query = "select RESCOD,RESDES from PUB.\"SDTRES \" where RESTYPCOD = 'MO' ";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -551,7 +555,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getUser(String RESCOD) throws SQLException {
 
-		String query = "select * from PUB.\"SDTRES \" where RESTYPCOD = 'MO' and RESCOD='" + RESCOD + "'";
+		String query = "select RESCOD,RESDES from PUB.\"SDTRES \" where RESTYPCOD = 'MO' and RESCOD='" + RESCOD + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -581,7 +585,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getSessoes() throws SQLException {
 
-		String query = "select * from PUB.\"SPASEC \" ";
+		String query = "select SECCOD,SECLIB from PUB.\"SPASEC \" ";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 

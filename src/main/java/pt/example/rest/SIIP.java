@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -264,6 +267,14 @@ public class SIIP {
 	@Produces("application/json")
 	public RP_OF_CAB insertRP_OF_CAB(final RP_OF_CAB data) {
 		return dao.create(data);
+	}
+	
+	@POST
+	@Path("/pesquisa_avancada")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public List<RP_OF_CAB> pesquisa_avancada(final List<HashMap<String, String>> data) throws ParseException {
+		return dao.pesquisa_avancada(data);
 	}
 
 	@PUT
