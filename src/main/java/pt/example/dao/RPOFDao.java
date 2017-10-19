@@ -70,7 +70,8 @@ public class RPOFDao extends GenericDaoJpaImpl<RP_OF_CAB, Integer> implements Ge
 		HashMap<String, String> firstMap = dados.get(0);
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		Date date;
-		
+		String squery;
+
 		Query query = entityManager.createQuery("select a,b,c from RP_OF_CAB a, RP_OF_OP_CAB b,RP_OF_OP_FUNC c "
 				+ "where a.ID_UTZ_CRIA = c.ID_UTZ_CRIA and c.ID_OP_CAB=b.ID_OP_CAB and a.ID_OF_CAB = b.ID_OF_CAB and"
 				+ "	a.ID_OF_CAB in( "
@@ -81,30 +82,46 @@ public class RPOFDao extends GenericDaoJpaImpl<RP_OF_CAB, Integer> implements Ge
 				+ "select h.ID_OF_CAB from RP_OF_OP_CAB h,RP_OF_OP_FUNC e where h.ID_OP_CAB = e.ID_OP_CAB and "
 				+ "((not :date3 != null) or (e.DATA_INI <= :date3)) and ((not :date1 !=  null) or (e.DATA_INI >= :date1)) and "
 				+ "((not :date4 != null) or (e.DATA_FIM <= :date4)) and ((not :date2 != null) or (e.DATA_FIM >= :date2)) and "
-				+ "((not '"+ firstMap.get("hora4")+"' != 'null') or (e.HORA_FIM <= '"+ firstMap.get("hora4")+"')) and ((not '"+ firstMap.get("hora2")+"' != 'null') or (e.HORA_FIM >= '"+ firstMap.get("hora2")+"')) and "
-				+ "((not '"+ firstMap.get("hora3")+"' != 'null') or (e.HORA_INI <= '"+ firstMap.get("hora3")+"')) and ((not '"+ firstMap.get("hora1")+"' != 'null') or (e.HORA_INI >= '"+ firstMap.get("hora1")+"')) and "
-				+ "((not :func != null) or (e.NOME_UTZ_CRIA like :func))) and a.ID_OF_CAB_ORIGEM = null  order by c.DATA_INI desc, c.HORA_INI desc");
-		query.setParameter("func", '%' + firstMap.get("func") + '%');
-		
-		
+				+ "((not '" + firstMap.get("hora4") + "' != 'null') or (e.HORA_FIM <= '" + firstMap.get("hora4")
+				+ "')) and ((not '" + firstMap.get("hora2") + "' != 'null') or (e.HORA_FIM >= '" + firstMap.get("hora2")
+				+ "')) and " + "((not '" + firstMap.get("hora3") + "' != 'null') or (e.HORA_INI <= '"
+				+ firstMap.get("hora3") + "')) and ((not '" + firstMap.get("hora1") + "' != 'null') or (e.HORA_INI >= '"
+				+ firstMap.get("hora1") + "')) and "
+				+ "((not :func != null) or (e.NOME_UTZ_CRIA like :func))) and ((not :ordem != null) or (a.OF_NUM like :ordem)) and "
+				+ "((not :operacao != null) or (a.OP_NUM like :operacao)) and ((not :maquina != null) or (a.MAQ_NUM like :maquina)) and"
+				+ " a.ID_OF_CAB_ORIGEM = null  order by c.DATA_INI desc, c.HORA_INI desc");
+
+		// query.setParameter("estado", '%'+firstMap.get("estado")+'%');
+		squery = (firstMap.get("func") == null ? null : '%' + firstMap.get("func") + '%');
+		query.setParameter("func", squery);
+
+		squery = (firstMap.get("ref") == null ? null : '%' + firstMap.get("ref") + '%');
+		query.setParameter("ref", squery);
+
+		squery = (firstMap.get("design_ref") == null ? null : '%' + firstMap.get("design_ref") + '%');
+		query.setParameter("design_ref", squery);
+
+		squery = (firstMap.get("ordem") == null ? null : '%' + firstMap.get("ordem") + '%');
+		query.setParameter("ordem", squery);
+
+		squery = (firstMap.get("operacao") == null ? null : '%' + firstMap.get("operacao") + '%');
+		query.setParameter("operacao", squery);
+
+		squery = (firstMap.get("maquina") == null ? null : '%' + firstMap.get("maquina") + '%');
+		query.setParameter("maquina", squery);
+
 		date = (firstMap.get("date1") == null ? null : formatter.parse(firstMap.get("date1")));
 		query.setParameter("date1", date); // Data Início >=
-	
+
 		date = (firstMap.get("date3") == null ? null : formatter.parse(firstMap.get("date3")));
 		query.setParameter("date3", date); // <= Data Início
-		
+
 		date = (firstMap.get("date2") == null ? null : formatter.parse(firstMap.get("date2")));
 		query.setParameter("date2", date); // Data Fim >=
-		
+
 		date = (firstMap.get("date4") == null ? null : formatter.parse(firstMap.get("date4")));
 		query.setParameter("date4", date); // <= Data Fim
 
-		
-		// query.setParameter("estado", '%'+firstMap.get("estado")+'%');
-		query.setParameter("func", '%' + firstMap.get("func") + '%');
-		query.setParameter("ref", '%' + firstMap.get("ref") + '%');
-		query.setParameter("design_ref", '%' + firstMap.get("design_ref") + '%');
-		
 		List<RP_OF_CAB> utz = query.getResultList();
 		return utz;
 

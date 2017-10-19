@@ -1,6 +1,7 @@
 package pt.example.dao;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -17,13 +18,13 @@ public class RP_OF_OP_FUNCDao extends GenericDaoJpaImpl<RP_OF_OP_FUNC,Integer> i
 	
 	
 
-	public List<RP_OF_OP_FUNC> getbyid(Integer id_of_cab, String user,String estado) {
+	public List<RP_OF_OP_FUNC> getbyid(Integer id_of_cab, String user,ArrayList<String>  estado) {
 
 		Query query = entityManager.createQuery("Select a,b,c from RP_OF_OP_FUNC a,RP_OF_CAB b,RP_OF_OP_CAB c "
 				+ "where c.ID_OF_CAB = b.ID_OF_CAB and "
 				+ "c.ID_OP_CAB = a.ID_OP_CAB and "
 				+ "c.ID_OF_CAB in (select d.ID_OF_CAB from RP_OF_CAB d where d.ID_OF_CAB_ORIGEM = :id or d.ID_OF_CAB=:id) and "
-				+ "a.ID_UTZ_CRIA = :user and b.ESTADO NOT IN (:estado) order by b.ID_OF_CAB_ORIGEM,b.ID_OF_CAB");
+				+ "a.ID_UTZ_CRIA = :user and b.ESTADO NOT IN (:estado) and a.ESTADO NOT IN (:estado) order by b.ID_OF_CAB_ORIGEM,b.ID_OF_CAB");
 		query.setParameter("id", id_of_cab);
 		query.setParameter("user", user);
 		query.setParameter("estado",estado);

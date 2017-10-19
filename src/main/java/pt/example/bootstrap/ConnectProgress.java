@@ -1,7 +1,6 @@
 package pt.example.bootstrap;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.json.JsonObject;
 
 public class ConnectProgress {
 
@@ -23,10 +20,11 @@ public class ConnectProgress {
 
 	private Connection getConnection() throws SQLException {
 		try {
+			conf pasta = new conf();
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
 			// the openedge url
-			String url = "jdbc:datadirect:openedge://192.168.40.112:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
+			String url = pasta.filePath;
 			// String url =
 			// "jdbc:datadirect:openedge://192.168.30.25:20612;DatabaseName=silv-exp;User=SYSPROGRESS;Password=SYSPROGRESS;";
 			// get the openedge database connection
@@ -487,7 +485,7 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getEtiqueta(String etiqueta) throws SQLException {
 
-		String query = "select b.OFNUM, b.ofanumenr,ofref,OFBQTEINI,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
+		String query = "select b.OFNUM, b.ofanumenr,ofref,a.ETQEMBQTE,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
 				+ "inner join PUB.\"SOFA\" b on b.ofnum = left(a.etqoridoc1,10) "
 				+ "inner join PUB.\"SOFB\" c on b.OFANUMENR = c.OFANUMENR " + "where a.etqnum = '" + etiqueta + "'";
 
@@ -504,7 +502,7 @@ public class ConnectProgress {
 				x.put("OFNUM", rs.getString("OFNUM"));
 				x.put("ofanumenr", rs.getString("ofanumenr"));
 				x.put("ofref", rs.getString("ofref"));
-				x.put("OFBQTEINI", rs.getString("OFBQTEINI"));
+				x.put("ETQEMBQTE", rs.getString("ETQEMBQTE"));
 				x.put("INDNUMENR", rs.getString("INDNUMENR"));
 				x.put("VA1REF", rs.getString("VA1REF"));
 				x.put("VA2REF", rs.getString("VA2REF"));

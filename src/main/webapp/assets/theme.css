@@ -1463,7 +1463,7 @@ body .ui-datatable .ui-datatable-data tr.ui-row-editing.ui-datatable-odd, body .
 .tabcss .ui-tabview.ui-tabview-left .ui-tabview-nav li {
     min-height: 54px;
     /*font-size: 20px;*/
-    font-size: 12pt;
+    font-size: 1vw;
 }
 
 .tabcss .ui-tabview-nav {
@@ -1472,7 +1472,7 @@ body .ui-datatable .ui-datatable-data tr.ui-row-editing.ui-datatable-odd, body .
 }
 
 .tabelacontrolo thead {
-    font-size: 14px;
+    font-size: 1vw;
 }
 
 .novoop .ui-dialog.ui-widget .ui-dialog-titlebar {
@@ -2633,7 +2633,7 @@ body .ui-datatable .ui-cell-data {
 }
 
 .tabelacontrolo .ui-datatable .ui-cell-data {
-    font-size: 10px !important;
+    font-size: 0.71vw !important;
 }
 
 .divtable tr {
@@ -2648,7 +2648,8 @@ body .ui-datatable .ui-cell-data {
     display: inline-table;
     width: 100%;
 }
-.divtable2 tbody{
+
+.divtable2 tbody {
     position: absolute;
     top: 0;
     left: 0;
@@ -2959,6 +2960,28 @@ html, body {
     background-repeat: no-repeat;
 }
 
+@media (min-width: 1199px) {
+    .loginadicional {
+        flex: 0 0 46.666667% !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .loginadicional {
+        flex: 0 0 101% !important;
+    }
+}
+
+@media (min-width: 564px) {
+    .loginadicional {
+        flex: -1 0 95% !important;
+    }
+}
+
+.ui-dialog .ui-dialog-titlebar-close span {
+    font-size: 18pt;
+}
+
 .loading {
     transition: opacity .8s ease-in-out;
     position: fixed;
@@ -3021,4 +3044,10 @@ html, body {
         margin-right: 0 !important;
         margin-left: 0 !important;
     }
+}
+
+.tabelaref_of thead th {
+    font-size: 11pt;
+    font-weight: 600 !important;
+    padding: 0px 2px 0px 2px !important
 }

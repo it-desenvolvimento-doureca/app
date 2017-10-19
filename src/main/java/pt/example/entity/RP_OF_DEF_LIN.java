@@ -16,6 +16,7 @@ import javax.persistence.Table;
 public class RP_OF_DEF_LIN {
 
 	private Integer ID_DEF_LIN;
+	private Integer ID_REF_ETIQUETA;
 	private Integer ID_OP_LIN;
 	private String ID_UTZ_CRIA;
 	private String ID_UTZ_MODIF;
@@ -24,7 +25,6 @@ public class RP_OF_DEF_LIN {
 	private String DESC_DEF;
 	private Integer QUANT_DEF;
 	private Timestamp DATA_HORA_REG;
-	
 
 	@Id
 	@Column(name = "ID_DEF_LIN")
@@ -68,11 +68,18 @@ public class RP_OF_DEF_LIN {
 		return DATA_HORA_REG;
 	}
 
-	
-
 	@Column(name = "OBS_DEF")
 	public String getOBS_DEF() {
 		return OBS_DEF;
+	}
+
+	@Column(name = "ID_REF_ETIQUETA")
+	public Integer getID_REF_ETIQUETA() {
+		return ID_REF_ETIQUETA;
+	}
+
+	public void setID_REF_ETIQUETA(Integer iD_REF_ETIQUETA) {
+		ID_REF_ETIQUETA = iD_REF_ETIQUETA;
 	}
 
 	public void setOBS_DEF(String oBS_DEF) {
@@ -111,5 +118,4 @@ public class RP_OF_DEF_LIN {
 		DATA_HORA_REG = dATA_HORA_REG;
 	}
 
-	
 }

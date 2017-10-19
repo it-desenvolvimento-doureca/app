@@ -28,7 +28,9 @@ import pt.example.dao.RP_CONF_FAMILIA_COMPDao;
 import pt.example.dao.RP_CONF_OPDao;
 import pt.example.dao.RP_CONF_OP_NPREVDao;
 import pt.example.dao.RP_OF_DEF_LINDao;
+import pt.example.dao.RP_OF_LST_DEFDao;
 import pt.example.dao.RP_OF_OP_CABDao;
+import pt.example.dao.RP_OF_OP_ETIQUETADao;
 import pt.example.dao.RP_OF_OP_LINDao;
 import pt.example.dao.RP_OF_OUTRODEF_LINDao;
 import pt.example.dao.RP_OF_PARA_LINDao;
@@ -41,7 +43,9 @@ import pt.example.entity.RP_CONF_FAMILIA_COMP;
 import pt.example.entity.RP_CONF_OP;
 import pt.example.entity.RP_CONF_OP_NPREV;
 import pt.example.entity.RP_OF_DEF_LIN;
+import pt.example.entity.RP_OF_LST_DEF;
 import pt.example.entity.RP_OF_OP_CAB;
+import pt.example.entity.RP_OF_OP_ETIQUETA;
 import pt.example.entity.RP_OF_OP_LIN;
 import pt.example.entity.RP_OF_OUTRODEF_LIN;
 import pt.example.entity.RP_OF_PARA_LIN;
@@ -92,6 +96,12 @@ public class SIIP {
 
 	@Inject
 	private RP_OF_OUTRODEF_LINDao dao12;
+
+	@Inject
+	private RP_OF_OP_ETIQUETADao dao13;
+
+	@Inject
+	private RP_OF_LST_DEFDao dao14;
 
 	// RP_CONF_UTZ_PERF***************************************************************
 	@POST
@@ -268,7 +278,7 @@ public class SIIP {
 	public RP_OF_CAB insertRP_OF_CAB(final RP_OF_CAB data) {
 		return dao.create(data);
 	}
-	
+
 	@POST
 	@Path("/pesquisa_avancada")
 	@Consumes("*/*")
@@ -296,11 +306,12 @@ public class SIIP {
 		return dao6.create(data);
 	}
 
-	@GET
-	@Path("/getdataof/{id}/{user}/{estado}")
+	@POST
+	@Path("/getdataof/{id}/{user}")
+	@Consumes("*/*")
 	@Produces("application/json")
 	public List<RP_OF_OP_FUNC> getdataof(@PathParam("id") Integer id, @PathParam("user") String user,
-			@PathParam("estado") String estado) {
+			final ArrayList<String> estado) {
 		return dao11.getbyid(id, user, estado);
 	}
 
@@ -536,10 +547,11 @@ public class SIIP {
 	}
 
 	@GET
-	@Path("/getbyidRP_OF_DEF_LIN/{id}/{id2}")
+	@Path("/getbyidRP_OF_DEF_LIN/{id}/{id2}/{id_ref}")
 	@Produces("application/json")
-	public List<RP_OF_DEF_LIN> getbyRP_OF_DEF_LIN(@PathParam("id") String id, @PathParam("id2") Integer id2) {
-		return dao5.getbyid(id, id2);
+	public List<RP_OF_DEF_LIN> getbyRP_OF_DEF_LIN(@PathParam("id") String id, @PathParam("id2") Integer id2,
+			@PathParam("id_ref") String id_ref) {
+		return dao5.getbyid(id, id2, id_ref);
 	}
 
 	@GET
@@ -547,6 +559,14 @@ public class SIIP {
 	@Produces("application/json")
 	public List<RP_OF_DEF_LIN> getbyid_op_lin(@PathParam("id") Integer id) {
 		return dao5.getbyid_op_lin(id);
+	}
+
+	@GET
+	@Path("/getbyidRP_OF_DEF_LINidoplin_etiq/{id}/{id_etiq}")
+	@Produces("application/json")
+	public List<RP_OF_DEF_LIN> getbyid_op_lin_id_etiq(@PathParam("id") Integer id,
+			@PathParam("id_etiq") Integer id_etiq) {
+		return dao5.getbyid_op_lin_id_etiqueta(id, id_etiq);
 	}
 
 	@GET
@@ -566,9 +586,15 @@ public class SIIP {
 	}
 
 	@DELETE
-	@Path("/deleteRP_OF_DEF_LIN/{id}")
-	public void deleteRP_OF_DEF_LIN(@PathParam("id") Integer id) {
-		dao5.apagar_id_op_lin(id);
+	@Path("/deleteRP_OF_DEF_LIN/{id}/{etiqueta}")
+	public void deleteRP_OF_DEF_LIN(@PathParam("id") Integer id, @PathParam("etiqueta") Integer etiqueta) {
+		dao5.apagar_id_op_lin(id, etiqueta);
+	}
+
+	@DELETE
+	@Path("/deleteRP_OF_DEF_LIN2/{id}")
+	public void apagar_id_DEF_LIN(@PathParam("id") Integer id) {
+		dao5.apagar_id_DEF_LIN(id);
 	}
 	// RP_OF_OUTRODEF_LIN****************************************************
 
@@ -594,6 +620,105 @@ public class SIIP {
 	public RP_OF_OUTRODEF_LIN updateRP_OF_OUTRODEF_LIN(final RP_OF_OUTRODEF_LIN RP_OF_OUTRODEF_LIN) {
 		RP_OF_OUTRODEF_LIN.setQUANT_OUTRODEF(RP_OF_OUTRODEF_LIN.getQUANT_OUTRODEF());
 		return dao12.update(RP_OF_OUTRODEF_LIN);
+	}
+
+	// RP_OF_OP_ETIQUETA***************************************************************
+	@POST
+	@Path("/createRP_OF_OP_ETIQUETA")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_ETIQUETA insertRP_OF_OP_ETIQUETA(final RP_OF_OP_ETIQUETA data) {
+		return dao13.create(data);
+	}
+
+	@GET
+	@Path("/getRP_OF_OP_ETIQUETA")
+	@Produces("application/json")
+	public List<RP_OF_OP_ETIQUETA> getRP_OF_OP_ETIQUETA() {
+		return dao13.allEntries();
+	}
+
+	@GET
+	@Path("/getRP_OF_OP_ETIQUETAbyid/{id}")
+	@Produces("application/json")
+	public List<RP_OF_OP_ETIQUETA> getRP_OF_OP_ETIQUETA_id(@PathParam("id") Integer id) {
+		return dao13.getbyid(id);
+	}
+
+	@GET
+	@Path("/getRP_OF_OP_ETIQUETAbyid/{id}/{id2}")
+	@Produces("application/json")
+	public List<RP_OF_OP_ETIQUETA> getbyid_etiqueta(@PathParam("id") Integer ID_OP_LIN,
+			@PathParam("id2") Integer ID_REF_ETIQUETA) {
+		return dao13.getbyid_etiqueta(ID_REF_ETIQUETA, ID_OP_LIN);
+	}
+
+	@GET
+	@Path("/getRP_OF_OP_ETIQUETAbyid_op_lin/{id}")
+	@Produces("application/json")
+	public List<RP_OF_OP_ETIQUETA> getRP_OF_OP_ETIQUETAbyid_op_lin(@PathParam("id") Integer id) {
+		return dao13.getbyid_oplin(id);
+	}
+
+	@DELETE
+	@Path("/deleteRP_OF_OP_ETIQUETA/{id}")
+	public void deleteRP_OF_OP_ETIQUETA(@PathParam("id") Integer id) {
+		RP_OF_OP_ETIQUETA RP_OF_OP_ETIQUETA = new RP_OF_OP_ETIQUETA();
+		RP_OF_OP_ETIQUETA.setID_REF_ETIQUETA(id);
+		dao13.delete(RP_OF_OP_ETIQUETA);
+	}
+
+	@PUT
+	@Path("/updateRP_OF_OP_ETIQUETA")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_OP_ETIQUETA updateRP_OF_OP_ETIQUETA(final RP_OF_OP_ETIQUETA RP_OF_OP_ETIQUETA) {
+		RP_OF_OP_ETIQUETA.setQUANT_BOAS(RP_OF_OP_ETIQUETA.getQUANT_BOAS());
+		return dao13.update(RP_OF_OP_ETIQUETA);
+	}
+
+	// RP_OF_LST_DEF***************************************************************
+	@POST
+	@Path("/createRP_OF_LST_DEF")
+	@Consumes("*/*")
+	@Produces("application/json")
+	public RP_OF_LST_DEF insertRP_OF_LST_DEF(final RP_OF_LST_DEF data) {
+		return dao14.create(data);
+	}
+
+	@GET
+	@Path("/getRP_OF_LST_DEF")
+	@Produces("application/json")
+	public List<RP_OF_LST_DEF> getRP_OF_LST_DEF() {
+		return dao14.allEntries();
+	}
+
+	@GET
+	@Path("/getRP_OF_LST_DEFid/{id}")
+	@Produces("application/json")
+	public List<RP_OF_LST_DEF> getRP_OF_LST_DEF_id(@PathParam("id") Integer id) {
+		return dao14.getbyid(id);
+	}
+
+	@GET
+	@Path("/getRP_OF_LST_DEFbyid_op_lin/{id}")
+	@Produces("application/json")
+	public List<RP_OF_LST_DEF> getRP_OF_LST_DEFbyid_op_lin(@PathParam("id") Integer id) {
+		return dao14.getdef(id);
+	}
+
+	@DELETE
+	@Path("/deleteRP_OF_LST_DEF/{id}")
+	public void deleteRP_OF_LST_DEF(@PathParam("id") Integer id) {
+		RP_OF_LST_DEF RP_OF_LST_DEF = new RP_OF_LST_DEF();
+		RP_OF_LST_DEF.setID_LST_DEF(id);
+		dao14.delete(RP_OF_LST_DEF);
+	}
+	
+	@DELETE
+	@Path("/deleteRP_OF_LST_DEFid_op_lin/{id}")
+	public void deleteRP_OF_LST_DEFid_op_lin(@PathParam("id") Integer id) {
+		dao14.apagar_idop_lin(id);
 	}
 
 	// CRIAR

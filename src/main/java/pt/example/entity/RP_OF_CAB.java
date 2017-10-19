@@ -19,7 +19,6 @@ public class RP_OF_CAB {
 	private String OF_NUM;
 	private String OF_OBS;
 	private String OP_COD;
-	private String OP_COD_ORIGEM;
 	private String OP_NUM;
 	private String OP_DES;
 	private String SEC_NUM;
@@ -33,7 +32,6 @@ public class RP_OF_CAB {
 	private String NOME_UTZ_MODIF;
 	private Timestamp DATA_HORA_MODIF;
 	private String ESTADO;
-	private String NUM_ETIQUETA;
 
 	@Id
 	@Column(name = "ID_OF_CAB")
@@ -110,24 +108,6 @@ public class RP_OF_CAB {
 	@Column(name = "OP_NUM")
 	public String getOP_NUM() {
 		return OP_NUM;
-	}
-
-	@Column(name = "OP_COD_ORIGEM")
-	public String getOP_COD_ORIGEM() {
-		return OP_COD_ORIGEM;
-	}
-
-	@Column(name = "NUM_ETIQUETA")
-	public String getNUM_ETIQUETA() {
-		return NUM_ETIQUETA;
-	}
-
-	public void setNUM_ETIQUETA(String nUM_ETIQUETA) {
-		NUM_ETIQUETA = nUM_ETIQUETA;
-	}
-
-	public void setOP_COD_ORIGEM(String oP_COD_ORIGEM) {
-		OP_COD_ORIGEM = oP_COD_ORIGEM;
 	}
 
 	public void setOP_NUM(String oP_NUM) {
