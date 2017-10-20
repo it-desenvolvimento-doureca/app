@@ -21,6 +21,8 @@ public class ConnectProgress {
 	private Connection getConnection() throws SQLException {
 		try {
 			conf pasta = new conf();
+			
+			//pasta.teste();
 			// the openedge driver string
 			Class.forName("com.ddtek.jdbcx.openedge.OpenEdgeDataSource40");
 			// the openedge url
@@ -60,11 +62,10 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			globalconnection.close();
 			globalconnection.close();
 		}
 		return x;
@@ -92,7 +93,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -398,7 +399,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -442,7 +443,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -473,7 +474,7 @@ public class ConnectProgress {
 			}
 			stmt.close();
 			rs.close();
-			connection.close();
+			//connection.close();
 			globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -485,9 +486,9 @@ public class ConnectProgress {
 
 	public List<HashMap<String, String>> getEtiqueta(String etiqueta) throws SQLException {
 
-		String query = "select b.OFNUM, b.ofanumenr,ofref,a.ETQEMBQTE,c.INDNUMENR,c.VA1REF,c.VA2REF,c.INDREF from PUB.\"SETQDE\" a "
+		String query = "select b.OFNUM, b.ofanumenr,ofref,a.ETQEMBQTE,a.INDNUMENR,a.VA1REF,a.VA2REF,a.INDREF from PUB.\"SETQDE\" a "
 				+ "inner join PUB.\"SOFA\" b on b.ofnum = left(a.etqoridoc1,10) "
-				+ "inner join PUB.\"SOFB\" c on b.OFANUMENR = c.OFANUMENR " + "where a.etqnum = '" + etiqueta + "'";
+				+ "where a.etqnum = '" + etiqueta + "'";
 
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
@@ -512,7 +513,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -542,7 +543,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -572,7 +573,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -602,7 +603,7 @@ public class ConnectProgress {
 			stmt.close();
 			rs.close();
 			connection.close();
-			globalconnection.close();
+			//globalconnection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
